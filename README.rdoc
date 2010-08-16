@@ -10,12 +10,12 @@
 
 * ruby 1.8.7
 * gems
-** ryanb-acts-as-list
-** prawn
-** gravatar
+  * ryanb-acts-as-list
+  * prawn
+  * gravatar
 * gems (for testing)
-** ZenTest
-** autotest-rails
+  * ZenTest
+  * autotest-rails
 
 == Testing
 

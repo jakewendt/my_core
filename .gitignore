@@ -19,7 +19,7 @@ db/seeds.rb
 doc/app
 doc/guides
 doc/plugins
-log/*.log
+log/*
 rdoc
 tmp/**/*
 versions

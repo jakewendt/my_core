@@ -1,11 +1,6 @@
 = My Core Rails App
 
 
-== Installation
-
- sudo gem install rails -v=2.3.2
- sudo rake gems:install
-
 == Expectations and Requirements
 
 * ruby 1.8.7
@@ -16,6 +11,13 @@
 * gems (for testing)
   * ZenTest
   * autotest-rails
+
+
+== Installation
+
+ sudo gem install rails -v=2.3.2
+ sudo rake gems:install
+
 
 == Testing
 

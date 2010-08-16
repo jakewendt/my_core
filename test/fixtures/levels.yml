@@ -1,0 +1,21 @@
+beginner:
+  id: 1
+  value: 1
+  name: Beginner
+
+novice:
+  value: 2
+  name: Novice
+
+intermediate:
+  value: 3
+  name: Intermediate
+
+advanced:
+  value: 4
+  name: Advanced
+
+expert:
+  value: 5
+  name: Expert
+

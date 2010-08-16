@@ -1,5 +1,10 @@
 = My Core Rails App
 
+== To Do Before Posting Here
+
+* remove any references to my passwords or keys
+* merge all migrations to match existing db
+
 
 == Expectations and Requirements
 

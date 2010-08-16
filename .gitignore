@@ -2,9 +2,12 @@
 .gitignore
 .svn
 aws_sdb_proxy.yml
+backgroundrb.yml
 database.yml
 fed_ex.yml
 flickr.yml
+juggernaut.yml
+juggernaut_hosts.yml
 initializers/mail.rb
 initializers/session_store.rb
 s3.yml
@@ -16,6 +19,7 @@ db/*_structure.sql
 db/*sql
 db/schema.rb
 db/seeds.rb
+doc
 doc/app
 doc/guides
 doc/plugins

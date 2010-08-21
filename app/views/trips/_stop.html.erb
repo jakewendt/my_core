@@ -1,0 +1,5 @@
+<li><%= link_to stop.title, stop_path(stop) %> <br/>
+<span class='footnote'>
+(<%= pluralize( stop.photos.count, 'photo' ) -%>)
+(<%= pluralize( stop.comments_count, 'comment' ) -%>)</span>
+</li>

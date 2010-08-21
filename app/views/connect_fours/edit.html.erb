@@ -1,0 +1,32 @@
+<h1>Editing connect_four</h1>
+
+<% form_for(@connect_four) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :player_1_id %><br />
+    <%= f.text_field :player_1_id %>
+  </p>
+  <p>
+    <%= f.label :player_2_id %><br />
+    <%= f.text_field :player_2_id %>
+  </p>
+  <p>
+    <%= f.label :turn_id %><br />
+    <%= f.text_field :turn_id %>
+  </p>
+  <p>
+    <%= f.label :winner_id %><br />
+    <%= f.text_field :winner_id %>
+  </p>
+  <p>
+    <%= f.label :marshaled_squares %><br />
+    <%= f.text_area :marshaled_squares %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @connect_four %> |
+<%= link_to 'Back', connect_fours_path %>

@@ -1,0 +1,13 @@
+<h1>Editing role</h1>
+
+<%= error_messages_for :role %>
+
+<% form_for(@role) do |f| %>
+  <p><b>Name</b></p>
+  <%= f.text_field :name, :class => 'text' %>
+
+  <p><%= f.submit "Update" %>&nbsp;<%= link_to 'Cancel and Show', @role, :class => 'button' %></p>
+<% end %>
+
+<%= link_to 'Show', @role %> |
+<%= link_to 'Back', roles_path %>

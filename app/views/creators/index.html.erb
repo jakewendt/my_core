@@ -1,0 +1,20 @@
+<h1>Creators</h1>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Assets Count</th>
+		<th>&nbsp;</th>
+		<th>&nbsp;</th>
+	</tr>
+
+<% @creators.each do |creator| -%>
+	<tr class='<%= cycle('odd', 'even') -%>'>
+		<td><%= link_to h(creator.name), creator %></td>
+		<td><%= creator.assets_count %></td>
+		<td><%= link_to 'Edit', edit_creator_path(creator) %></td>
+		<td><%= link_to 'Destroy', confirm_destroy_creator_path(creator), 
+			:title => creator.name, :class => 'confirm_destroy' %></td>
+	</tr>
+<% end -%>
+</table>

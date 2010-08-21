@@ -1,0 +1,25 @@
+<% div_for @connect_four do -%>
+<%= c4_players(@connect_four) %>
+
+<% @connect_four.squares.each_with_index do |column,cindex| -%>
+  <div id='column_<%=cindex-%>' class='column'>
+  <% column.reverse.each_with_index do |row,rindex| -%>	<%# reverse so that 0 is on the bottom -%>
+<%
+classes = ['square']
+classes.push('player_1') if row[:player] == @connect_four.player_1_id
+classes.push('player_2') if row[:player] == @connect_four.player_2_id
+classes.push('winner')   if row[:winner]
+-%>
+<%= "<div class='#{classes.join(' ')}'>&nbsp;</div>" %>
+  <% end -%>
+  </div>
+<% end -%>
+
+<% javascript_tag do -%>
+turn_user_id = <%= @connect_four.batter -%>;
+add_column_listeners();
+<%= "setTimeout(function(){reload_board();},5000);" unless @connect_four.users_turn?(current_user) and JUGGERNAUT_ENABLED %>
+<% end if @connect_four.still_playing? %>
+
+
+<% end -%><!-- class='connect_four' -->

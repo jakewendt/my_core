@@ -1,0 +1,6 @@
+<p><b>Affiliations</b>
+( <%= link_to_remote 'add', :url => resume_affiliations_path(@resume) %> )
+</p>
+<div id='affiliations'>
+  <%= render :partial => 'affiliations/edit', :collection => @resume.affiliations, :as => :affiliation %>
+</div><%# end <div id='affiliations'> -%>

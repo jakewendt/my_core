@@ -1,0 +1,52 @@
+
+
+<%#  I DON'T THINK THAT THIS IS USED ANYMORE %>
+
+
+<%= link_to "my<br/>JW", root_path, :class => 'title' -%>
+
+<% if logged_in? %>
+
+  <%= link_to "My Stuff", mystuff_path %>
+  <%= link_to "My Profile", user_path(current_user) %>
+
+  <%# link_to h(current_user.login.capitalize)+"'s", user_path(current_user) %>
+<!--
+<a class='my'>... friends </a>
+<a class='my'>... messages </a>
+<a class='my'>... photos </a>
+<a class='my'>... albums </a>
+<a class='my'>... notes </a>
+-->
+  <%# link_to '... '+ pluralize( current_user.blogs_count, 'blog' ), blogs_path, :class => 'my' %>
+  <%# link_to '... '+ pluralize( current_user.trips_count, 'trip' ), trips_path, :class => 'my' %>
+  <%# link_to '... '+ pluralize( current_user.boards_count, 'board' ), boards_path, :class => 'my' %>
+  <%# link_to '... '+ pluralize( current_user.resumes_count, 'resume' ), resumes_path, :class => 'my' %>
+  <%# link_to '... '+ pluralize( current_user.lists_count, 'list' ), lists_path, :class => 'my' %>
+
+
+
+  <%= link_to 'Sign Out', logout_path %>
+  <% if current_user.has_role?('administrator') %>
+    <%= link_to 'USERS', users_path %>
+    <%= link_to 'PAGES', pages_path %>
+  <% end %>
+<% else %>
+  <%= link_to 'Sign In', login_path %>
+  <%= link_to 'Sign Up', signup_path %>
+  <%# link_to 'Forgot Password?', forgot_password_path %>
+<% end %>
+
+<%= link_to 'Forums', forums_path %>
+<%= link_to 'Blogs',   search_blogs_path %>
+<%= link_to 'Trips',   search_trips_path %>
+<%= link_to 'Boards',  search_boards_path %>
+<%= link_to 'Resumes', search_resumes_path %>
+<%= link_to 'Lists',   search_lists_path %>
+<%= link_to 'Notes',   search_notes_path %>
+<%= link_to 'Contact Me', compose_path %>
+
+<%# for page in @pages %>
+<% for page in Page.find_all %>
+  <%= if !page.first?; link_to page.title, page_path(page); end %>
+<% end %>

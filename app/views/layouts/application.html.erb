@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+<link rel="icon" href="/images/hal9000.png" type="image/x-icon" />
+<link rel="shortcut icon" href="/images/hal9000.png" type="image/x-icon" />
+
+ <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+ <title><%= @page_title || "my.jakewendt.com" -%></title>
+ <%= stylesheet_link_tag 'scaffold', 'style', controller.controller_name %>
+ <%= stylesheet_link_tag 'print', :media => 'print' %>
+ <%= javascript_include_tag :defaults, 'dynamic' %>
+
+<% if controller.controller_name == 'trips' and ['edit','show'].include?(controller.action_name) %>
+ <% if request.env["SERVER_NAME"] =~ /jakewendt/ %>
+  <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAB-v7nZ2fkxF0-r3MI9yZuhQpAt4bU7HiNDPgoQAogh38KYDQ_xQZgyFJX2xGvLku3dB9r3BLS7SmFg" type="text/javascript"></script>
+ <% else %>
+  <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAB-v7nZ2fkxF0-r3MI9yZuhROBIwYeOsmfolgOSVewupk_6dWgBSiMbXhTbzMOg1qbRS4zmp-4tqQJA" type="text/javascript"></script>
+ <% end %>
+<% end %>
+<%= yield :head %>
+<%= yield :juggernaut if JUGGERNAUT_ENABLED %>
+</head>
+<body <%=yield :body_tag-%>>
+<div id='background'>
+<div id='left_margin' class='margin'></div>
+<div id='right_margin' class='margin'></div>
+</div><!-- <div id='background'> -->
+<div id='container'>
+ <%= render :partial => 'layouts/topmenu' %>
+<div id='content'>
+ <% flash.each do |key, msg| %>
+  <%= content_tag :p, msg, :id => key, :class => 'flash' %>
+ <% end %>
+<noscript>
+<p id='noscript' class='flash'>Dude, seriously?  Javascript is required for this site to be fully functional.</p>
+</noscript>
+ <%= yield %>
+</div><!-- content -->
+</div><!-- container -->
+</body>
+</html>

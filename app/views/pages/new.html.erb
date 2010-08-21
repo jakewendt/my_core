@@ -1,0 +1,8 @@
+<%= error_messages_for :page %>
+
+<% form_for(@page) do |f| %>
+  <%= render :partial => 'form', :locals => {:f => f} %>
+  <p>
+<%= f.submit "Create" %>
+</p>
+<% end %>

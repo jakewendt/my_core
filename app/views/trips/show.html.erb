@@ -1,0 +1,22 @@
+<% content_for :head, auto_discovery_link_tag( :rss, trip_url(@trip, :format => :rss) ) %>
+<% content_for :body_tag, "onload='initialize(#{@trip.lat}, #{@trip.lng}, #{@trip.zoom})' onunload='GUnload()'" %>
+<%# content_for :head, stylesheet_link_tag('showtrip') %>
+<% content_for :head, javascript_include_tag('tripmap') %>
+<% content_for :top_menu, trip_menu(@trip) %>
+
+<div id='tripmap'></div>
+
+<%= controlframe h(@trip.title), 'world_globe.png' %>
+
+<div class='description'><%= sanitize(textilize(@trip.description)) %></div>
+
+<ol type='A'>
+<li style='display:none'>Place holder to make valid html when no items</li>
+<%= render :partial => "stop", :collection => @trip.stops %>
+</ol>
+
+<script type='text/javascript'>
+<%= render :partial => "marker", :collection => @trip.stops %>
+</script>
+
+<p id='tag_names'>Tags: <%= @trip.tag_names %></p>

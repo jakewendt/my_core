@@ -1,0 +1,16 @@
+<tr class="<%= cycle('odd', 'even') %>">
+  <td><%= link_to h(user.login), user_path(user) %></td>
+  <td><%=h user.email %></td>
+  <td><%=h user.activated_email %></td>
+  <td class='center'><%= if user.last_login; user.last_login.to_s(:month_day); end %></td>
+  <td><%= user.enabled ? 'Y' : 'N' %>
+    <% unless user == current_user %>
+      <% if user.enabled %>
+        [<%= link_to('disable', user_path(user.id), :method => :delete) -%>]
+      <% else %>
+        [<%= link_to('enable', enable_user_path(user.id), :method => :put) -%>]
+      <% end %>
+    <% end %>
+  </td>
+  <td class='center'>[<%= link_to 'edit', user_roles_path(user) -%>]</td>
+</tr>

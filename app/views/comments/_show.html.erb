@@ -1,0 +1,18 @@
+<div id="<%=dom_id(comment)-%>">
+<%= error_messages_for :comment, :object => comment %>
+<p class='footnote'>On 
+<%= comment.created_at.to_s(:long) %>, 
+<%=h comment.user.login %>
+ said ... 
+<% if editable?(comment) %>
+ | <%= link_to image_tag('comment_edit.png'), edit_comment_path(comment) %>
+ | 
+<%= link_to_remote image_tag('comment_remove.png'),
+  :url => comment_path(comment), 
+  :confirm => "Delete comment?\nAre you sure?", 
+  :method => :delete -%>
+
+<% end %>
+</p>
+<p class='description comment_body'><%= sanitize(textilize(comment.body)) %></p>
+</div>

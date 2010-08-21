@@ -1,0 +1,6 @@
+<!-- generate link data to create the rss icon in the url field -->
+<% content_for :head, auto_discovery_link_tag( :rss, user_photos_url(@user, :format => :rss) ) %>
+
+<%= controlframe "Photos", 'camera.png' -%>
+
+<%= render :partial => 'table' -%>

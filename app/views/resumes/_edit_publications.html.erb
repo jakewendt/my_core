@@ -1,0 +1,6 @@
+<p><b>Publications</b>
+( <%= link_to_remote 'add', :url => resume_publications_path(@resume) %> )
+</p>
+<div id='publications'>
+<%= render :partial => 'publications/edit', :collection => @resume.publications, :as => :publication -%>
+</div><%# end <div id='publications'> -%>

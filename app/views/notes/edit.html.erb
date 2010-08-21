@@ -1,0 +1,9 @@
+<% content_for :head, javascript_include_tag( 'javascrypt' ) %>
+<% content_for :top_menu, edit_note_menu(@note) %>
+
+<%= error_messages_for :note %>
+
+<% form_for(@note) do |f| %>
+	<%= render :partial => 'form', :locals => { :f => f } %>
+	<p><%= f.submit "Update" %>&nbsp;<%= link_to "Cancel and View", @note, :class => 'button' %></p>
+<% end %>

@@ -1,0 +1,43 @@
+<% content_for :top_menu, stop_menu(@stop) %>
+
+<div class='controlframe'>
+ <%= image_tag 'world_globe.png' %>
+ <div class='control bar'>
+  <div class='leftbar'>
+  <b>Trip:</b>
+  <%= link_to h(@stop.trip.title), trip_path(@stop.trip) %>
+</div>
+  <div class='rightbar'>
+   <%= if ( @previous ); link_to "<- Previous Stop", stop_path(@previous); end %>
+   <%= if ( @previous && @next ); "&nbsp;|&nbsp;"; end %>
+   <%= if ( @next );     link_to "Next Stop ->", stop_path(@next); end %>
+   <%= if ( !@previous && !@next ); "&nbsp;"; end %>
+  </div>
+ </div>
+</div>
+
+<p class='control bar'>
+  <b>Title:</b>
+  <%=h @stop.title %>
+</p>
+
+<div class='description'><%=textilize @stop.description %></div>
+
+<div id='photos'>
+<%= render :partial => 'photos/show', :collection => @stop.photos, :as => :photo %>
+</div>
+
+  <p class='footnote'>
+    Posted: <%=h @stop.created_at.to_s(:long) %>
+<% if @stop.created_at < @stop.updated_at %>
+    | Updated: <%=h @stop.updated_at.to_s(:long) %>
+<% end %>
+  </p>
+
+<p class='footnote'>Comments: <span id='comments_count'><%= @stop.comments_count %></span></p>
+<hr/>
+
+<div id='comments'>
+<%= render :partial => 'comments/show', :collection => @stop.comments, :as => :comment %>
+</div>
+<%= render :partial => 'comments/new', :locals => { :objects => @stop } %>

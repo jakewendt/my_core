@@ -1,0 +1,11 @@
+<% content_for :top_menu, creator_menu(@creator) %>
+
+<h1>Editing creator</h1>
+
+<% form_for(@creator) do |f| %>
+	<%= f.error_messages %>
+
+	<%= f.label :name %><br />
+	<%= f.text_field :name %>
+	<p><%= f.submit 'Update' %>&nbsp;<%= link_to 'Cancel and Show', @creator, :class => 'button' %></p>
+<% end %>

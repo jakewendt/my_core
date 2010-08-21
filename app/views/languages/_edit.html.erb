@@ -1,0 +1,18 @@
+<% content_tag_for(:tr, language) do %>
+<% fields_for "resume[languages_attributes][]", language do |f| -%>
+  <td class='drag'><%= image_tag 'drag.gif', :class => 'dragger' %></td>
+  <td>
+    <%= f.hidden_field :id %>
+    <%= f.text_field :name, :class => 'text' %>
+  </td>
+      
+  <td class='level'>
+    <%= f.collection_select(:level_id, Level.find(:all), :id, :name ) %>
+  </td>
+        
+  <td>
+    <%= f.check_box :_delete %>
+    <%= f.label :_delete, 'Destroy' %>
+  </td>
+<% end -%><%# end fields_for -%>
+<% end %><%# end content_tag_for(:tr, language) do -%>

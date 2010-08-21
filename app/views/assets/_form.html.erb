@@ -1,0 +1,48 @@
+<div class='field' id='creator_names'>
+	<%= f.label :creator_names, "Creators (comma separated)" %><br/>
+	<%= f.text_field :creator_names %>
+</div>
+<div class='field' id='location_names'>
+	<%= f.label :location_names, "Locations (comma separated)" %><br/>
+	<%= f.text_field :location_names %>
+</div>
+<div class='field' id='category_names'>
+	<%= f.label :category_names, "Categories (comma separated)" %><br/>
+	<%= f.text_field :category_names %>
+</div>
+
+<div id='description'>
+<%= f.label :description %> (uses sanitized <%= link_to 'textile', '/help/textile' %>)<br/>
+	<%= f.text_area :description %>
+</div>
+
+<div class='field' id='model'><%= f.label :model %><br/>
+	<%= f.text_field :model %>
+</div>
+<div class='field'><%= f.label :serial, "Serial Number" %><br/>
+	<%= f.text_field :serial %>
+</div>
+<div class='field'><br/>
+	<%= f.check_box :for_sale %>
+	<%= f.label :for_sale, "For Sale?" %>
+</div>
+
+<div class='field' id='cost'><%= f.label :cost, "Purchase Cost" %><br/>
+	<%= f.text_field :cost %>
+</div>
+<div class='field'><%= f.label :value, "Current Value" %><br/>
+	<%= f.text_field :value %>
+</div>
+<div class='field'><%= f.label :price, "For Sale Price" %><br/>
+	<%= f.text_field :price %>
+</div>
+
+<div class='field' id='acquired_on'><%= f.label :acquired_on_string, "Acquired On" %><br/>
+	<%= f.text_field :acquired_on_string %>
+</div>
+<div class='field'><%= f.label :used_on_string, "Used On" %><br/>
+	<%= f.text_field :used_on_string %>
+</div>
+<div class='field' id='sold_on'><%= f.label :sold_on_string, "Sold On" %><br/>
+	<%= f.text_field :sold_on_string %>
+</div>

@@ -1,0 +1,15 @@
+<% controlframe( "Users", 'users.png' ) do -%>
+ ( <%= @users.length -%> )
+<% end -%>
+
+<table id='users'>
+<tr>
+<th>Username</th>
+<th>Email</th>
+<th>Activated Email</th>
+<th>Last login</th>
+<th>Enabled?</th>
+<th>Roles</th>
+</tr>
+<%= render :partial => 'user', :collection => @users -%>
+</table>

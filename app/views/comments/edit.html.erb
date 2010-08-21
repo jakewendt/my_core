@@ -1,0 +1,13 @@
+<h1>Editing comment</h1>
+
+<%= error_messages_for :comment %>
+
+<% form_for @comment do |f| %>
+  <p><b>Body</b></p>
+<div><%= f.text_area :body %></div>
+
+  <p><%= f.submit "Update" %>&nbsp;
+    <%= link_to 'Cancel', polymorphic_path(@comment.commentable), :class => 'button' %>
+  </p>
+<% end %>
+

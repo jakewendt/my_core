@@ -1,0 +1,10 @@
+<% form_for :resume, 
+	:url => resume_path(@resume), 
+	:html => { :class => 'confirm_destroy', :method => :delete } do |f| %>
+	<h2>Are you sure you want to destroy this resume?</h2>
+	<p><%= @resume.title -%></p>
+	<p>
+		<%= f.submit "Destroy" %>
+		or <%= link_to "Cancel", resumes_path, :class => 'button' %>
+	</p>
+<% end %>

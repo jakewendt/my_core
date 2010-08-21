@@ -1,0 +1,5 @@
+page.insert_html :bottom, "items", :partial => 'show', :locals => { :item => @item }
+page.visual_effect :highlight, dom_id(@item), :duration => 1
+page[:new_item].reset
+page[:item_content].focus
+page << "add_item_listeners('##{dom_id(@item)}')"

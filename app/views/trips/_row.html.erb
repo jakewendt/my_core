@@ -1,0 +1,32 @@
+<%#
+	classes = ['row']
+	classes.push('otheruser') if trip.user_id != current_user.id
+	classes.push('public') if trip.public
+-%>
+<%# content_tag_for(:div, trip, :class => classes.join(' ') ) do -%>
+<% content_tag_for(:div, trip, :class => classes_for_trip(trip) ) do -%>
+ <div class='title'>
+  <span class='value'><%= link_to h(trip.title), trip -%></span>
+ </div>
+ <div class='manage'><%= manage_links_for( trip ) -%></div>
+ <div class='user'>
+  <span class='label'>Owner:</span>
+  <span class='value'>
+		<%= filter_link_to(h(trip.user.login),params.dup,{:user => trip.user.login}) %>
+	</span>
+ </div>
+ <div class='hide'>
+  <span class='label'><%= (trip.hide)?"Hidden":"Visible" -%></span>
+ </div>
+ <div class='public'>
+  <span class='label'><%= (trip.public)?"PUBLIC":"Private" -%></span>
+ </div>
+ <div class='stops_count'>
+  <span class='label'>Stops:</span>
+  <span class='value'><%= trip.stops_count -%></span>
+ </div>
+ <div class='tags'>
+  <span class='label'>Tags:</span>
+  <span class='value'><%= trip.tags.map{|t| filter_link_to(h(t.name),params.dup,{:tags => t.name}) }.join(', ') %></span>
+ </div>
+<% end -%><!-- div class='trip -->

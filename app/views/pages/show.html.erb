@@ -1,0 +1,7 @@
+<% content_for( :top_menu, page_menu(@page) ) if ( logged_in? and current_user.is_admin? )%>
+
+<div class='page description'>
+<% if @page %>
+<%= sanitize(textilize(@page.body)) %>
+<% end %>
+</div>

@@ -1,0 +1,3 @@
+page.insert_html :bottom, "titles", :partial => 'title', :collection => @titles
+page.replace_html "status", "Getting '#{@netflix_url}'"
+page.replace 'next_page', :partial => 'next_page'

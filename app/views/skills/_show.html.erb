@@ -1,0 +1,7 @@
+<% content_tag_for(:tr, skill, :class=> 'resume_item ' + cycle('odd', 'even') ) do %>
+ <td><%=h skill.name %></td>
+ <td class='level'><%= skill.level.name %></td>
+ <td class='date'><%= skill.start_date.to_s(:month_year) %></td>
+ <td class='date'><%= skill.end_date_to_s %></td>
+ <td class='date'><%= skill.years_experience %></td>
+<% end %>

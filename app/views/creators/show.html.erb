@@ -1,0 +1,9 @@
+<% content_for :top_menu, assets_menu %>
+<% content_for :top_menu, creator_menu(@creator) %>
+
+<%= controlframe h("Assets made by #{h(@creator.name)}") %>
+
+<%= render :partial => 'assets/table', :collection => @assets, :as => :asset, 
+	:locals => { :assets_length => @assets.length } %>
+
+<%= will_paginate @assets %>

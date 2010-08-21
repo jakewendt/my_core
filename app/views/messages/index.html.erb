@@ -1,0 +1,45 @@
+<h1>Received messages</h1>
+
+<table>
+  <tr>
+    <th>From</th>
+    <th>Read</th>
+    <th>Subject</th>
+    <th>Sent on</th>
+  </tr>
+
+<% @received_messages.each do |message| %>
+  <tr>
+    <td><%=h message.sender.login %></td>
+    <td><%=h message.read %></td>
+    <td><%=link_to(h(message.subject), message) %></td>
+    <td><%=h message.created_at %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<h1>Sent messages</h1>
+
+<table>
+  <tr>
+    <th>To</th>
+    <th>Read</th>
+    <th>Subject</th>
+    <th>Sent on</th>
+  </tr>
+
+<% @sent_messages.each do |message| %>
+  <tr>
+    <td><%=h message.recipient.login %></td>
+    <td><%=h message.read %></td>
+    <td><%=link_to(h(message.subject), message) %></td>
+    <td><%=h message.created_at %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New message', new_message_path %>

@@ -1,0 +1,7 @@
+<%= 'Skills:' %>
+<%= 'Name'.ljust(30) << 
+	'Level'.ljust(15) << 
+	'First'.ljust(10) << 
+	'Last'.ljust(10) << 
+	'Years Exp.'.ljust(10) %>
+<%= render :partial => 'skills/show', :collection => skills, :as => :skill %>

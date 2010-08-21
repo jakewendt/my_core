@@ -1,0 +1,11 @@
+<% form_tag url_for(:action => 'create'), :id => 'forgot_password' do %>
+<h2>Forgot Password</h2>
+
+What is the email address used to create your account?<br />
+<%= text_field_tag :email, "", :class => 'text' %><br />
+
+<p>
+<%= submit_tag "Reset Your Password", :name => nil %>
+</p>
+
+<% end %>

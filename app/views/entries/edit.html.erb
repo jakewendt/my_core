@@ -1,0 +1,18 @@
+<h2>Editing Blog Entry</h2>
+
+<%= error_messages_for :entry %>
+
+<% form_for :entry, 
+  :url  => entry_path(@entry),
+  :html => {:multipart => true, :method => :put} do |f| -%>
+  <%= render :partial => 'form', :locals => {:f => f} %>
+
+<p>Photos:
+<%= link_to_remote image_tag('add.png'), :url => create_photo_entry_path(@entry) %>
+</p>
+<div id='photos'>
+ <%= render :partial => 'photos/edit', :collection => @entry.photos, :as => :photo %>
+</div><!-- photos --> 
+
+  <p><%= f.submit "Update" %>&nbsp;<%= link_to "Cancel and View", @entry, :class => 'button' %></p>
+<% end %>

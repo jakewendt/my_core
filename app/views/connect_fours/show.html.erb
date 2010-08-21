@@ -1,0 +1,7 @@
+<% content_for :head, javascript_include_tag( 'connect_four' ) -%>
+<% content_for :juggernaut do -%>
+ <%= javascript_include_tag( :jqjuggernaut ) %>
+ <%= juggernaut(:client_id => current_user.id, :channels => [dom_id(@connect_four)]) -%>
+<% end -%>
+
+<%= render :partial => 'game_board' -%>

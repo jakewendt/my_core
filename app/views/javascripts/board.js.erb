@@ -1,0 +1,32 @@
+jQuery(function(){
+
+	jQuery('form#new_magnet').submit(function(){
+		jQuery.ajax({
+			beforeSend:function(request){$('#posting_magnet').show();}, 
+			complete:function(request){$('#posting_magnet').hide()}, 
+			data:jQuery.param(jQuery(this).serializeArray()),
+			dataType:'script', 
+			type:'post', 
+			url:this.action
+		}); 
+		return false;
+	});
+
+	jQuery('span.magnet').draggable({
+		stop: function(event,ui) {
+			$.post(
+				"/magnets/"+$(this).attr('id').replace(/magnet_/,''),
+				{
+					_method:'put',
+					'magnet[top]':$(this).css('top').replace(/px/,""),
+					'magnet[left]':$(this).css('left').replace(/px/,""),
+					/* Need to check because testing turns forgery protection off */
+					authenticity_token:"<%=if (protect_against_forgery?);form_authenticity_token();end-%>"
+				},
+				function(){/* all done */},
+				'script'	/* need script so that the returned rjs gets executed */
+			);
+		}
+	});
+
+});

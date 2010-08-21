@@ -1,0 +1,8 @@
+<% content_tag_for(:div, publication, :class => 'resume_item') do %>
+ <p><b><%=h publication.title %></b>
+ ( <%=h publication.date.to_s(:month_year) -%> )
+ </p>
+ <p><%=h publication.name %></p>
+ <p><%=h publication.contribution %></p>
+ <p><%=h publication.url %></p>
+<% end %>

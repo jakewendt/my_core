@@ -1,0 +1,11 @@
+<% div_for @tic_tac_toe do -%>
+<%= ttt_players(@tic_tac_toe) %>
+<%= (0..8).collect{|i| ttt_square(i) } %>
+
+<% javascript_tag do -%>
+turn_user_id = <%= @tic_tac_toe.batter -%>;
+add_square_listeners();
+<%= "setTimeout(function(){reload_board();},5000);" unless @tic_tac_toe.users_turn?(current_user) and JUGGERNAUT_ENABLED %>
+<% end if @tic_tac_toe.still_playing? %>
+
+<% end -%><!-- class='tic_tac_toe' -->

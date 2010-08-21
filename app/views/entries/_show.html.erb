@@ -1,0 +1,14 @@
+<% content_tag_for(:div, entry, :blog) do %>
+ <p class='control bar'>
+  <b><%= link_to h(entry.title), entry_path(entry) %></b>
+ </p>
+
+ <div class='description'><%= sanitize(textilize(entry.body)) %></div>
+ <div class='bar'>
+  <small>Entry created on <%=h entry.created_at.to_s(:basic) %>
+   and has <%= pluralize( entry.photos.count, "Photo" ) %> 
+   and <%= pluralize( entry.comments_count, "Comment" ) %>
+  </small>
+ </div>
+<% end %>
+<hr/>

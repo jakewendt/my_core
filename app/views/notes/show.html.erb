@@ -1,0 +1,25 @@
+<% content_for :head do %>
+<%= "<!--[if IE]>#{javascript_include_tag( 'excanvas.pack.js' )}<![endif]-->" %>
+<%= javascript_include_tag( 'jquery.flot','flot','javascrypt','period' ) %>
+<% end %>
+<% content_for :top_menu, note_menu(@note) %>
+
+<%= controlframe h(@note.title) %>
+
+<div id="flot_placeholder" class='flot'></div>
+
+<% if @note.textilize %>
+<!--
+DO NOT textilize encrypted stuff
+Encrypt/Decrypt get mucked up with this
+-->
+<div id='note_body'>
+<%=sanitize(textilize(@note.body))%>
+</div>
+<% else %>
+<pre id='note_body'>
+<%=auto_link_urls(h(@note.body), :target => 'new') %>
+</pre>
+<% end %>
+
+<p id='tag_names'>Tags: <%= @note.tag_names %></p>

@@ -1,0 +1,11 @@
+<% content_for :top_menu, location_menu(@location) %>
+
+<h1>Editing location</h1>
+
+<% form_for(@location) do |f| %>
+	<%= f.error_messages %>
+
+	<%= f.label :name %><br />
+	<%= f.text_field :name %>
+	<p><%= f.submit 'Update' %>&nbsp;<%= link_to 'Cancel and Show', @location %></p>
+<% end %>

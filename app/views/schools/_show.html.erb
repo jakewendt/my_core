@@ -1,0 +1,8 @@
+<% content_tag_for(:div, school, :class => 'resume_item') do %>
+ <%=sanitize(textilize(
+	"<span class='name'>#{school.name}</span>" <<
+	"<span class='dates'>( #{school.start_date.to_s(:month_year)}&nbsp;-&nbsp;#{school.end_date_to_s} )</span>")) %>
+ <p class='degree'><%=h school.degree %></p>
+ <p class='location'><%=sanitize(textilize(school.location))%></p>
+ <div class='description'><%=sanitize(textilize(school.description))%></div>
+<% end %>

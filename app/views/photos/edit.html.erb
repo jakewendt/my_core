@@ -1,0 +1,17 @@
+<%= error_messages_for :photo %>
+
+<% form_for(@photo, :html => { :multipart=> true } ) do |f| %>
+
+<p>
+<%= f.submit "Update and View" %>&nbsp;
+<%= link_to 'Cancel and View', @photo, :class => 'button' %>
+</p>
+
+<%= file_column_field 'photo', 'file' %><br/>
+
+<%= if(@photo.file); image_tag url_for_file_column("photo", "file"); end %><br/>
+
+<p>Caption:</p>
+<%= f.text_area  :caption %>
+
+<% end %>

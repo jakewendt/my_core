@@ -1,0 +1,10 @@
+<p><b>Title</b></p>
+<%= f.text_field :title, :class => 'text' %>
+
+<p><b>Body</b> (uses sanitized <%= link_to 'textile', '/help/textile' %>)</p>
+<%= f.text_area :body %>
+
+<!--
+<p>Created at</p>
+<%= f.text_field :created_at_string, :class => 'text' %>
+-->

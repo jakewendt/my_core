@@ -1,0 +1,37 @@
+<%= resume.title %>
+<% if !resume.objective.blank? -%>
+<%= "\nOBJECTIVE:\n" %>
+<%= "#{resume.objective}\n" %>
+<% end -%>
+<% if !resume.summary.blank? -%>
+<%= "\nSUMMARY:\n" %>
+<%= "#{resume.summary}\n" %>
+<% end -%>
+<% if resume.jobs_count > 0 %>
+<%= render :partial => 'jobs/index', :locals => { :jobs => resume.jobs } %>
+<% end %>
+<% if resume.schools_count > 0 %>
+<%= render :partial => 'schools/index', :locals => { :schools => resume.schools } %>
+<% end %>
+<% if resume.skills_count > 0 %>
+<%= render :partial => 'skills/index', :locals => { :skills => resume.skills } %>
+<% end %>
+<% if resume.publications_count > 0 %>
+<%= render :partial => 'publications/index', :locals => { :publications => resume.publications } %>
+<% end %>
+<% if resume.affiliations_count > 0 %>
+<%= render :partial => 'affiliations/index', :locals => { :affiliations => resume.affiliations } %>
+<% end %>
+<% if resume.languages_count > 0 %>
+<%= render :partial => 'languages/index', :locals => { :languages => resume.languages } %>
+<% end %>
+<% if !resume.other.blank? -%>
+<%= "\nOTHER:\n" %>
+<%= "#{resume.other}\n" %>
+<% end -%>
+
+<%= "Tags: #{resume.tag_names}\n" %>
+<%= "Created on #{resume.created_at.to_s(:basic)}" %>
+<%= "Last updated on #{resume.updated_at.to_s(:basic)}" %>
+
+<%= "----------------------------------------------------------------------" %>

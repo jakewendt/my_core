@@ -1,0 +1,15 @@
+<%= trip.title %>
+<%= trip.description %>
+
+<% if trip.stops_count > 0 %>
+ <%= render :partial => 'stops/show', :collection => trip.stops, :as => :stop %>
+<% else %>
+ <%= "This trip currently has no stops." %>
+<% end %>
+
+<%= "Tags: #{trip.tag_names}\n" %>
+
+<%= "Created on #{trip.created_at.to_s(:basic)}" %>
+<%= "Last updated on #{trip.updated_at.to_s(:basic)}" %>
+
+<%= "----------------------------------------------------------------------" %>

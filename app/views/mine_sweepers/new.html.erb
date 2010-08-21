@@ -1,0 +1,19 @@
+<% form_tag(mine_sweeper_path, :id => 'new_mine_sweeper', :method => :get ) do %>
+	<%= label_tag('w', 'Grid Width') %>
+	<%= select_tag('w', options_for_select([10,15,20,25,30],[20]))%>
+	<%= label_tag('h', 'Grid Height') %>
+	<%= select_tag('h', options_for_select([10,15,20,25,30],[15]))%>
+	<%= label_tag('d', 'Difficulty') %>
+	<%= select_tag('d', options_for_select([
+		['Easy'    , 10],
+		['Medium'  , 15],
+		['Hard'    , 20],
+		['Hardest' , 25]
+	],[15]))%>
+	<%= submit_tag('Play', :name => nil) %>
+<% end %>
+<small id='mine_sweeper_notice'>
+A simple javascript implementation of the classic game.  
+Click on squares and try to clear the board without clicking on a mine. 
+Right click on the squares that you think are mines to block accidental clicking.
+</small>

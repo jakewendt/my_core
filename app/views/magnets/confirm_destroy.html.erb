@@ -1,0 +1,10 @@
+<% form_for :magnet, 
+	:url => magnet_path(@magnet), 
+	:html => { :class => 'confirm_destroy', :method => :delete } do |f| %>
+	<h2>Are you sure you want to destroy this magnet?</h2>
+	<p><%= @magnet.word -%></p>
+	<p>
+		<%= f.submit "Destroy" %>
+		or <%= link_to "Cancel", edit_board_path(@magnet.board), :class => 'button' %>
+	</p>
+<% end %>

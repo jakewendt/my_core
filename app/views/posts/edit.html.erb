@@ -1,0 +1,11 @@
+<h2>Edit Post</h2> 
+<%= error_messages_for :post -%> 
+<h3>Topic: <%= @post.topic.name %></h3> 
+<% form_for :post, 
+    :url => post_path( @post ),
+    :html => {:method => :put} do |f| -%> 
+  <p>Message:</p>
+	<%= f.text_area :body -%>
+  <%= f.submit 'Save' -%>&nbsp;
+  <%= link_to 'Cancel', forum_topics_path( @post.topic.forum), :class => 'button' -%> 
+<% end -%> 

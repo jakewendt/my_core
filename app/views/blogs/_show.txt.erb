@@ -1,0 +1,13 @@
+<%= blog.title %>
+<%= blog.description %>
+<%= "Tags: #{blog.tag_names}" %>
+<%= "Created on #{blog.created_at.to_s(:basic)}" %>
+<%= "Last updated on #{blog.updated_at.to_s(:basic)}" %>
+
+<% if blog.entries_count > 0 %>
+ <%= render :partial => 'entries/show', :collection => blog.entries, :as => :entry %>
+<% else %>
+ <%= "This blog currently has no entries." %>
+<% end %>
+
+<%= "----------------------------------------------------------------------" %>

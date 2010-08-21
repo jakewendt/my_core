@@ -1,0 +1,56 @@
+<h1>Editing tic_tac_toe</h1>
+
+<% form_for(@tic_tac_toe) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :player_1_id %><br />
+    <%= f.text_field :player_1_id %>
+  </p>
+  <p>
+    <%= f.label :player_2_id %><br />
+    <%= f.text_field :player_2_id %>
+  </p>
+  <p>
+    <%= f.label :square_0_id %><br />
+    <%= f.text_field :square_0_id %>
+  </p>
+  <p>
+    <%= f.label :square_1_id %><br />
+    <%= f.text_field :square_1_id %>
+  </p>
+  <p>
+    <%= f.label :square_2_id %><br />
+    <%= f.text_field :square_2_id %>
+  </p>
+  <p>
+    <%= f.label :square_3_id %><br />
+    <%= f.text_field :square_3_id %>
+  </p>
+  <p>
+    <%= f.label :square_4_id %><br />
+    <%= f.text_field :square_4_id %>
+  </p>
+  <p>
+    <%= f.label :square_5_id %><br />
+    <%= f.text_field :square_5_id %>
+  </p>
+  <p>
+    <%= f.label :square_6_id %><br />
+    <%= f.text_field :square_6_id %>
+  </p>
+  <p>
+    <%= f.label :square_7_id %><br />
+    <%= f.text_field :square_7_id %>
+  </p>
+  <p>
+    <%= f.label :square_8_id %><br />
+    <%= f.text_field :square_8_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @tic_tac_toe %> |
+<%= link_to 'Back', tic_tac_toes_path %>

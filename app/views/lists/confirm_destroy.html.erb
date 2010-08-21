@@ -1,0 +1,11 @@
+<% form_for :list, 
+	:url => list_path(@list), 
+	:html => { :class => 'confirm_destroy', :method => :delete } do |f| %>
+	<h2>Are you sure you want to destroy this list?</h2>
+	<p><%= @list.title -%></p>
+	<p><%= @list.description -%></p>
+	<p>
+		<%= f.submit "Destroy" %>
+		or <%= link_to "Cancel", lists_path, :class => 'button' %>
+	</p>
+<% end %>

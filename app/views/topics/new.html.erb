@@ -1,0 +1,9 @@
+<%= error_messages_for :topic, :post %>
+
+<% form_for :topic, :url => forum_topics_path(@forum) do |f| -%> 
+  <p>Topic Subject:</p> 
+  <%= f.text_field :name, :class => 'text' -%>
+  <p>First Post:</p> 
+	<%= text_area :post, :body -%>
+  <%= f.submit 'Save' %> 
+<% end -%>

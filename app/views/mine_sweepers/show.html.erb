@@ -1,0 +1,24 @@
+<% content_for :head do %>
+ <% javascript_tag do -%>
+  <%= "w = #{params[:w].to_i};" if params[:w] -%>
+  <%= "h = #{params[:h].to_i};" if params[:h] -%>
+  <%= "d = #{params[:d].to_i};" if params[:d] -%>
+ <% end -%>
+ <%= javascript_include_tag('mine_sweeper') -%>
+<% end -%>
+
+<p id='counters'>
+<span class='label'>Mines: </span>
+<span class='count' id='mines_count'></span>
+
+<span class='label'>Squares: </span>
+<span class='count' id='squares_count'></span>
+
+<span class='label'>Cleared: </span>
+<span class='count' id='cleared_count'></span>
+
+<span class='label'>Safe: </span>
+<span class='count' id='safe_count'></span>
+</p>
+
+<div id='mine_sweeper'></div>

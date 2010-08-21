@@ -1,0 +1,31 @@
+<%= error_messages_for :resume %>
+<% form_for(@resume) do |f| %>
+
+  <p><b>Title</b>
+    <%= f.submit "Update and View" %>&nbsp;
+    <%= link_to 'Cancel and View', resume_path(@resume), :class => 'button' %>
+  </p>
+  <%= f.text_field :title, :class => 'text' %>
+
+  <p>
+    <%= f.check_box :public %>
+    <b><%= label 'resume', 'public', 'Allow Public to View?' %></b>
+  </p>
+
+  <p><b>Objective</b></p>
+  <%= f.text_area :objective %>
+
+  <p><b>Summary</b></p>
+  <%= f.text_area :summary %>
+
+  <%= render :partial => 'edit_jobs', :locals => { :f => f } %>
+  <%= render :partial => 'edit_schools', :locals => { :f => f } %>
+  <%= render :partial => 'edit_skills', :locals => { :f => f } %>
+  <%= render :partial => 'edit_affiliations', :locals => { :f => f } %>
+  <%= render :partial => 'edit_languages', :locals => { :f => f } %>
+  <%= render :partial => 'edit_publications', :locals => { :f => f } %>
+
+  <p><b>Other</b></p>
+  <%= f.text_area :other %>
+
+<% end %>

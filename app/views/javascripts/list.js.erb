@@ -1,0 +1,110 @@
+jQuery(function(){
+	jQuery('a#reorder').click(function(){
+//		list = this.href;
+/*
+	I could wrap the entire list in a div and addClass('reordering') to it
+	then add style for these things that I show and hide rather than do it
+	via javascript.  Is that better?  Worse?  Different?
+*/
+		jQuery('#items').addClass('reordering');
+		jQuery('#reorder').hide();
+		jQuery('#new_item').hide();
+		jQuery('ul.items form input.item_checkbox').hide()
+		jQuery('#end_reorder').show();
+		jQuery('#items').sortable({
+			axis:'y', 
+			dropOnEmpty:false, 
+			handle:'.dragger', 
+			items:'> li'
+/*
+	Moved the reordering function to occur only once when finished reordering is clicked.
+	
+			items:'> li', 
+			update:function(){
+				jQuery.ajax({
+					data:jQuery(this).sortable('serialize',{key:'items[]'}) + '&authenticity_token=' + 
+						encodeURIComponent("<%=if (protect_against_forgery?);form_authenticity_token();end-%>"),
+					dataType:'script', 
+					type:'post', 
+					url:list+'/items/order'
+				})
+			}
+*/
+		});
+		before = jQuery('ul#items').sortable('serialize',{key:'items[]'});
+		return false;
+	});
+
+	jQuery('a#end_reorder').click(function(){
+		jQuery('#items').removeClass('reordering');
+		jQuery('#end_reorder').hide();
+		jQuery('#new_item').show();
+		jQuery('#reorder').show();
+		jQuery('ul.items form input.item_checkbox').show()
+		after = jQuery('ul#items').sortable('serialize',{key:'items[]'})
+		if( before != after ) {
+			jQuery.ajax({
+				data:jQuery('ul#items').sortable('serialize',{key:'items[]'}) + '&authenticity_token=' + 
+					encodeURIComponent("<%=if (protect_against_forgery?);form_authenticity_token();end-%>"),
+				dataType:'script', 
+				type:'post', 
+				url:this.href+'/items/order'
+			})
+		} 
+		return false;
+	});
+
+	jQuery('a#mark_all_complete').click(function(){
+		if( confirm('Mark all as complete?\nAre you sure?') ){
+			jQuery('ul#items li input.item_checkbox').attr('checked',true).parent('form').submit()
+		}; 
+		return false;
+	});
+
+	jQuery('a#mark_all_incomplete').click(function(){
+		if( confirm('Mark all as incomplete?\nAre you sure?') ){
+			jQuery('ul#completed_items li input.item_checkbox').attr('checked',false).parent('form').submit()
+		}; 
+		return false;
+	});
+
+	jQuery('form#new_item').submit(function(){
+		jQuery.ajax({
+			beforeSend:function(request){$('#posting_item').show();}, 
+			complete:function(request){$('#posting_item').hide()}, 
+			data:jQuery.param(jQuery(this).serializeArray()),
+			dataType:'script', 
+			type:'post', 
+			url:this.action
+		}); 
+		return false;
+	});
+
+	add_item_listeners();
+});
+
+function add_item_listeners(id) {
+	/*
+		The following do not work on ajax created list items.
+		ie. Add new item, then click checkbox and nothing.
+		Will have to use listen here I think.
+		 jQuery.listen('click','input.item_checkbox', function(){
+		 jQuery.listen('submit','li.item form', function(){
+		Worked for the click, but not the submit.
+		Apparently 'li.item form' is an invalid selector for listen.
+	*/
+	id = (typeof(id) == 'undefined')?'':id
+	jQuery('li.item'+id+' input.item_checkbox').click(function(){
+		jQuery(this.form).submit();
+	});
+
+	jQuery('li.item'+id+' form').submit(function(){
+		jQuery.ajax({
+			data:jQuery.param(jQuery(this).serializeArray()),
+			dataType:'script', 
+			type:'post', 
+			url:this.action
+		}); 
+		return false;
+	});
+}

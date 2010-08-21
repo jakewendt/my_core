@@ -1,0 +1,7 @@
+<div id='next_page'><% javascript_tag do -%>
+$.post("rip_ratings", { 
+	_method:"put", 
+	netflix_url:"<%=@netflix_url-%>",
+	netflix_cookie:"<%=params[:netflix_cookie]-%>"
+}, function(){}, "script" );
+<% end if @netflix_url %></div>

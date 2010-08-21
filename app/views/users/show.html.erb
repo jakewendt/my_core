@@ -1,0 +1,27 @@
+<% content_for :top_menu, user_menu(@user) %>
+
+<%= controlframe @user.login, 'user.png' %>
+
+<table id='user_profile'>
+<tr><th>
+<div class='leftbar'>Profile</div>
+</th></tr>
+
+<tr>
+<td style='min-width: 600px;'>
+
+<div style='float: left; margin: 1em; border: 1px solid black; width:200px; height:200px;' >
+<%= if !@user.image.blank?; image_tag url_for_file_column("user", "image"); end %>
+</div>
+<div>
+<h2>User: <%=h @user.login %></h2>
+<p>email: <%=h @user.email %></p>
+<p>Joined on: <%= @user.created_at.to_s(:long) %></p>
+<p>Last login: <%= if !@user.last_login.blank?; @user.last_login.to_s(:long); end %></p>
+</div>
+</td>
+</tr>
+
+<tr><td>
+</td></tr>
+</table>

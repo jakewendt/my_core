@@ -1,0 +1,15 @@
+<% content_for :top_menu, notes_menu -%>
+<% content_for :top_menu, legend -%>
+
+<% controlframe "Notes" do -%>
+	(<%= "#{@notes.total_entries}/#{current_user.notes_count}" -%>)
+	<%#= filter_select_tag %>
+	<%= filter_and_sort_select_tags('Note') %>
+<% end -%>
+
+<%= render :partial => "shared/filters" -%>
+<%= render :partial => 'table' -%>
+
+<%= will_paginate @notes %>
+
+<%= add_search_form(notes_path,params) %>

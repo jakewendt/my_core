@@ -1,0 +1,20 @@
+<h2>Editing stop</h2>
+
+<%= error_messages_for :stop %>
+
+<% form_for(@stop, :html => { :multipart=> true } ) do |f| %>
+  <p><b>Title</b></p>
+    <%= f.text_field :title, :class => 'text' %>
+
+  <p><b>Description</b></p>
+    <%= f.text_area :description %>
+
+<p>Photos:
+<%= link_to_remote image_tag('add.png'), :url => create_photo_stop_path(@stop) %>
+</p>
+<div id='photos'>
+ <%= render :partial => 'photos/edit', :collection => @stop.photos, :as => :photo %>
+</div><!-- photos -->
+
+<p><%= f.submit "Update and View" %>&nbsp;<%= link_to "Cancel and View", @stop, :class => 'button' %></p>
+<% end %>

@@ -1,0 +1,17 @@
+<%= "\nTrips by #{current_user.login}\n\n" %>
+
+<%= "\nDownloaded on #{Time.now.to_s(:basic)}\n\n" %>
+
+<%= "\n\n----------------------------------------------------------------------\n\n" %>
+
+
+<%= "\nTable of Contents\n\n" %>
+<% @trips.each do |trip| -%>
+	<%= " * #{trip.title}" %>
+<% end -%>
+<%= "\n\n----------------------------------------------------------------------\n\n" %>
+
+<%= render :partial => 'trips/show',
+	:collection => @trips,
+	:as => :trip
+-%>

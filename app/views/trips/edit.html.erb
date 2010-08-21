@@ -1,0 +1,37 @@
+<h2>Editing trip</h2>
+
+<%= error_messages_for :trip %>
+
+<% form_for(@trip) do |f| %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+
+  <p><b>Trip Map Info:</b></p>
+  <table id='map_info'><tr>
+    <th>Latitude Center:</th>
+    <th>Longitude Center:</th>
+    <th>Map Zoom</th>
+  </tr><tr>
+    <td><%= f.text_field :lat , :class => 'text' %></td>
+    <td><%= f.text_field :lng , :class => 'text' %></td>
+    <td><%= f.text_field :zoom, :class => 'text' %></td>
+  </tr></table>
+
+  <p>
+<%= f.submit "Save all text and positions and view trip" %>&nbsp;
+<%= link_to "Cancel changes and view trip", trip_path(@trip), :class => 'button' %>
+</p>
+
+<p>Stops
+<%= link_to_remote image_tag('add.png'), :url => new_trip_stop_path(@trip), :method => :get %>
+<%# link_to_remote image_tag('add.png'), :url => add_stop_trip_path, :method => :put %>
+</p>
+<div id='stops'>
+<%= render :partial => 'stops/edit', :collection => @trip.stops.reverse, :as => :stop %>
+</div>
+
+<%= sortable_element("stops", 
+    :handle => "dragger",
+    :tag => 'div',
+    :url => order_trip_stops_path(@trip) ) %>
+
+<% end %>

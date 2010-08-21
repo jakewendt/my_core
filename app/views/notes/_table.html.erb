@@ -1,0 +1,7 @@
+<% if @notes && @notes.length > 0 %>
+<div id='notes' class='table'>
+<%= render :partial => 'notes/row', :collection => @notes, :as => :note %>
+</div><!-- div id='notes' -->
+<% else %>
+<p>No Notes Found!</p>
+<% end %>

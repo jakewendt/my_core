@@ -1,0 +1,17 @@
+<%= "\nNotes by #{current_user.login}\n\n" %>
+
+<%= "\nDownloaded on #{Time.now.to_s(:basic)}\n\n" %>
+
+<%= "\n\n----------------------------------------------------------------------\n\n" %>
+
+
+<%= "\nTable of Contents\n\n" %>
+<% @notes.each do |note| -%>
+	<%= " * #{note.title}" %>
+<% end -%>
+<%= "\n\n----------------------------------------------------------------------\n\n" %>
+
+<%= render :partial => 'notes/show',
+	:collection => @notes,
+	:as => :note
+-%>

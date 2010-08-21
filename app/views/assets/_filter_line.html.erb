@@ -1,0 +1,10 @@
+<% unless params[:filter].blank? && params[:category].blank? && params[:creator].blank? && params[:location].blank? -%>
+<div class='filter_line'>
+<div class='filters'>
+<%= params[:filter].uniq.map{|c| filter_links_for(params,{:filter => c}) } if params[:filter] -%>
+<%= params[:category].uniq.map{|c| filter_links_for(params,{:category => c}) } if params[:category] -%>
+<%= params[:creator].uniq.map{|c| filter_links_for(params,{:creator => c}) } if params[:creator] -%>
+<%= params[:location].uniq.map{|c| filter_links_for(params,{:location => c}) } if params[:location] -%>
+</div><!-- div class='filters' -->
+</div><!-- div class='filter_line' -->
+<% end -%>

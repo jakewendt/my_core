@@ -1,0 +1,5 @@
+page.insert_html :bottom, "magnets", :partial => 'edit', :locals => { :magnet => @magnet }
+page.visual_effect :highlight, dom_id(@magnet), :duration => 1
+page[:new_magnet].reset
+page[:magnet_word].focus
+page << "add_confirm_destroy_listeners('##{dom_id(@magnet)}')"

@@ -1,0 +1,32 @@
+<%#
+	classes = ['row']
+	classes.push('otheruser') if note.user_id != current_user.id
+	classes.push('public') if note.public
+-%>
+<%# content_tag_for(:div, note, :class => classes.join(' ') ) do -%>
+<% content_tag_for(:div, note, :class => classes_for_note(note) ) do -%>
+ <div class='title'>
+  <span class='value'><%= link_to h(note.title), note -%></span>
+ </div>
+ <div class='manage'><%= manage_links_for( note ) -%></div>
+ <div class='user'>
+  <span class='label'>Owner:</span>
+  <span class='value'>
+		<%= filter_link_to(h(note.user.login),params.dup,{:user => note.user.login}) %>
+	</span>
+ </div>
+ <div class='hide'>
+  <span class='label'><%= (note.hide)?"Hidden":"Visible" -%></span>
+ </div>
+ <div class='public'>
+  <span class='label'><%= (note.public)?"PUBLIC":"Private" -%></span>
+ </div>
+ <div class='length'>
+  <span class='label'>Length:</span>
+  <span class='value'><%= (note.body.nil?)?0:note.body.length -%></span>
+ </div>
+ <div class='tags'>
+  <span class='label'>Tags:</span>
+  <span class='value'><%= note.tags.map{|t| filter_link_to(h(t.name),params.dup,{:tags => t.name}) }.join(', ') %></span>
+ </div>
+<% end -%><!-- div class='note -->

@@ -1,0 +1,30 @@
+<% content_for :top_menu, assets_menu -%>
+<% content_for :top_menu, assets_legend -%>
+<% content_for :head, javascript_include_tag('assets') -%>
+
+<% controlframe "Assets" do -%>
+	(<%= "#{@assets.total_entries}/#{current_user.assets_count}" -%>)
+	<%= sort_select_tags('Asset') %>
+<% end -%>
+
+<%= render :partial => "filter_line" %>
+<%= render :partial => 'assets/table' -%>
+<%= will_paginate @assets %>
+<%= add_search_form(assets_path,params) %>
+
+<noscript>
+<div class='model'><span>Model filters:</span>
+<%= %w(Sold !Sold Used !Used Acquired !Acquired).map{|f| 
+	filter_link_to(f.gsub('_',' '),params.dup,{:filter => f}) }.join(', ') 
+%>
+</div>
+</noscript>
+<div id='new_filters' style='display:none'>
+<%= select_tag('new_model_filter', 
+	options_for_select( [['Apply New Model Filter',nil]] + Asset::FILTERS ),
+	{ :name => 'filter[]', :class => 'filter' }
+) %>
+<%= select_tag('new_category_filter', categories_for_select, { :name => 'category[]', :class => 'filter' }) %>
+<%= select_tag('new_creator_filter',  creators_for_select,   { :name => 'creator[]', :class => 'filter' }) %>
+<%= select_tag('new_location_filter', locations_for_select,  { :name => 'location[]', :class => 'filter' }) %>
+</div><!-- id='new_filters' -->

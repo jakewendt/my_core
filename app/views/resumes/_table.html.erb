@@ -1,0 +1,7 @@
+<% if @resumes && @resumes.length > 0 %>
+<div id='resumes' class='table'>
+<%= render :partial => 'resumes/row', :collection => @resumes, :as => :resume %>
+</div><!-- div id='resumes' -->
+<% else %>
+<p>No Resumes Found!</p>
+<% end %>

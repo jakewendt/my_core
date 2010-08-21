@@ -1,0 +1,8 @@
+<% content_tag_for( :div, affiliation, :class => 'resume_item' ) do %>
+ <%= sanitize(textilize(
+	"<span class='relationship'>" << affiliation.relationship << '</span>' <<
+ 	"<span class='organization'>" << affiliation.organization << '</span>' <<
+	"<span class='dates'>(&nbsp;" << affiliation.start_date.to_s(:month_year) <<
+	'&nbsp;-&nbsp;' << affiliation.end_date_to_s << '&nbsp;)</span>'
+	)) %>
+<% end %>

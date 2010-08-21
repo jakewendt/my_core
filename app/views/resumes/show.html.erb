@@ -1,0 +1,17 @@
+<% content_for :top_menu, resume_menu(@resume) %>
+
+<%= controlframe h(@resume.title) %>
+
+<%= section "Objective:", @resume.objective %>
+<%= section "Summary:", @resume.summary %>
+
+<%= render :partial => 'jobs/index', :locals => { :jobs => @resume.jobs } %>
+<%= render :partial => 'schools/index', :locals => { :schools => @resume.schools } %>
+<%= render :partial => 'skills/index', :locals => { :skills => @resume.skills } %>
+<%= render :partial => 'languages/index', :locals => { :languages => @resume.languages } %>
+<%= render :partial => 'affiliations/index', :locals => { :affiliations => @resume.affiliations } %>
+<%= render :partial => 'publications/index', :locals => { :publications => @resume.publications } %>
+
+<%= section "Other:", @resume.other %>
+
+<p><small>Last updated at <%= @resume.updated_at.to_s %></small></p>

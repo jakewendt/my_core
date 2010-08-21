@@ -1,0 +1,49 @@
+<% controlframe "Pages" do -%>
+	(<%= link_to "Create new page", new_page_path %>)
+<% end -%>
+
+<table id='pages'>
+  <tr>
+    <th colspan='2'>Menu Order</th>
+    <th>Position</th>
+    <th>&nbsp;</th>
+    <th>Path</th>
+    <th>Title</th>
+    <th>Body</th>
+  </tr>
+
+<% for page in @pages -%>
+  <tr class="<%= cycle('odd', 'even') -%>">
+    <td>
+      <% if page.first? -%>
+        &nbsp;
+      <% else -%>
+        <%= link_to image_tag('up.png'), move_higher_page_path(page), :method => :put %>
+      <% end -%>
+    </td>
+    <td>
+      <% if page.last? -%>
+        &nbsp;
+      <% else -%>
+        <%= link_to image_tag('down.png'), move_lower_page_path(page), :method => :put -%>
+      <% end -%>
+    </td>
+    <td align="center"><%=h page.position -%></td>
+
+    <td class='manage'>
+      <%= link_to image_tag('page_edit.png'), edit_page_path(page) %>
+      <%= link_to image_tag('remove.png'), page_path(page), :confirm => "Delete '#{page.title}'?\nAre you sure?", :method => :delete %>
+    </td>
+
+    <td><%= link_to h(page.path), page.path -%></td>
+    <td><%= link_to h(page.title), page -%></td>
+    <td>
+      <% if page.body.length >= 50 -%>
+        <%=h page.body[0,46] + " ..." -%>
+      <% else -%>
+        <%=h page.body -%>
+      <% end -%>
+    </td>
+  </tr>
+<% end -%>
+</table>

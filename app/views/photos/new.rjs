@@ -1,0 +1,1 @@
+page.insert_html :bottom, "photos", :partial => 'photos/edit', :locals => { :photo => @photo }

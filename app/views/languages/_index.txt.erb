@@ -1,0 +1,4 @@
+<%= 'Languages:' %>
+<%= 'Name'.ljust(30) << 
+	'Level' %>
+<%= render :partial => 'languages/show', :collection => languages, :as => :language %>

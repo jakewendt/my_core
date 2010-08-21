@@ -1,0 +1,13 @@
+<% form_tag password_path, :method => :put, :id => 'reset_password' do %>
+<%= hidden_field_tag :id, params[:id] %>
+Password:<br />
+<%= password_field_tag :password, :class => 'text' %><br />
+Confirm Password:<br />
+<%= password_field_tag :password_confirmation, :class => 'text' %><br />
+
+<p>
+<%= submit_tag "Save New Password", :name => nil %>&nbsp;
+<%= link_to 'Cancel', user_path(current_user), :class => 'button' %>
+</p>
+
+<% end %>

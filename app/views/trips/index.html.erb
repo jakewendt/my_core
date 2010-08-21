@@ -1,0 +1,15 @@
+<% content_for :top_menu, trips_menu -%>
+<% content_for :top_menu, legend -%>
+
+<% controlframe "Trips", 'world_globe.png' do -%>
+	(<%= "#{@trips.total_entries}/#{current_user.trips_count}" -%>)
+	<%#= filter_select_tag %>
+	<%= filter_and_sort_select_tags('Trip') %>
+<% end -%>
+
+<%= render :partial => "shared/filters" -%>
+<%= render :partial => 'table' -%>
+
+<%= will_paginate @trips %>
+
+<%= add_search_form(trips_path,params) %>

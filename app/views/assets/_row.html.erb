@@ -1,0 +1,37 @@
+<% content_tag_for(:div, asset, :class => classes_for_asset(asset) ) do -%>
+<div class='title'><%= link_to h(asset.title), asset %></div>
+<div class='manage'>
+<% if editable?(asset) -%>
+	<%= link_to 'Edit', edit_asset_path(asset) %>
+	<%= link_to 'Destroy', confirm_destroy_asset_path(asset), :title => h(asset.title),:class => 'ajax_confirm_destroy' %>
+<% else -%>
+&nbsp;
+<% end -%>
+</div>
+
+<div class='categories'>Categories: 
+	<%= asset.categories.map{|c| filter_link_to(h(c.name),params.dup,{:category => c.name}) }.join(', ') %>
+</div>
+<div class='creators'>Creators: 
+	<%= asset.creators.map{|c| filter_link_to(h(c.name),params.dup,{:creator => c.name}) }.join(', ') %>
+</div>
+<div class='locations'>Locations: 
+	<%= asset.locations.map{|l| filter_link_to(h(l.name),params.dup,{:location => l.name}) }.join(', ') %>
+</div>
+
+<div class='details'>
+<div class='model'>Model: <%=h asset.model %></div>
+<div class='serial'>Serial: <%=h asset.serial %></div>
+<div class='for_sale'>For Sale?: <%=h asset.for_sale %></div>
+
+<div class='cost'>Cost: <%= number_to_currency(asset.cost) %></div>
+<div class='value'>Value: <%= number_to_currency(asset.value) %></div>
+<div class='price'>Price: <%= number_to_currency(asset.price) %></div>
+
+<div class='acquired'>Acquired: <%=h asset.acquired_on %></div>
+<div class='used'>Used: <%=h asset.used_on %></div>
+<div class='sold'>Sold: <%=h asset.sold_on %></div>
+
+<div class='description'>Description: <%= sanitize(textilize(asset.description)) %></div>
+</div><!-- details -->
+<% end -%><!-- asset -->

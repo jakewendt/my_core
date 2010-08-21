@@ -1,0 +1,4 @@
+<%= "#{entry.title} (created on #{entry.created_at.to_s(:basic)})\n" %>
+<%= "#{entry.body}\n" %>
+<%= "Comments ... \n" %>
+<%= render :partial => 'comments/show', :collection => entry.comments, :as => :comment %>

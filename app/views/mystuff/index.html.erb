@@ -1,0 +1,17 @@
+<% content_for :top_menu, legend -%>
+
+<%= render :partial => "shared/filters" -%>
+
+<div id='mystuff'>
+<%= render :partial => "section", :collection => %w(Note Blog Trip Resume Board List) %>
+</div>
+
+<p>Other stuff</p>
+<p>Topics: <%= @user.topics_count %></p>
+<p>Posts: <%= @user.posts_count %></p>
+<p>Comments: <%= @user.comments_count %></p>
+
+<% form_for(Download.new) do |f| %>
+<%= f.hidden_field :url, :value => request.env["REQUEST_URI"] %>
+<%= f.submit "Build MyStuff.pdf" %>
+<% end -%>

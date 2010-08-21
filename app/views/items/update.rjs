@@ -1,0 +1,18 @@
+#	Rather than recreate the list item, I'm moving it.
+#	By moving it, the event handlers function without 
+#	needing the jQuery.Listen plugin.
+#	NEED to double quote everything if you want assert_select_rjs to work.
+if @item.completed
+page << "jQuery(\"##{dom_id(@item)}\").appendTo(\"#completed_items\")"
+page << "jQuery(\"##{dom_id(@item)} span.manage\").html('#{@item.completed_at.to_s(:basic)}')"
+else
+page << "jQuery(\"##{dom_id(@item)}\").appendTo(\"#items\")"
+page << "jQuery(\"##{dom_id(@item)} span.manage\").html('')"
+end
+
+#page.remove dom_id(@item)
+#if @item.completed
+#page.insert_html :bottom, "completed_items", :partial => 'show', :locals => { :item => @item }
+#else
+#page.insert_html :bottom, "items", :partial => 'show', :locals => { :item => @item }
+#end

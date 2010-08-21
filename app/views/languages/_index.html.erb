@@ -1,0 +1,9 @@
+<%= section_header 'Languages:' %>
+<div class='resume_section'>
+<table id='languages'><tr>
+<th>Name</th>
+<th>Level</th>
+</tr>
+<%= render :partial => 'languages/show', :collection => languages, :as => :language %>
+</table>
+</div>

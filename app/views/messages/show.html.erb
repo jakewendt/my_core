@@ -1,0 +1,33 @@
+<p>
+  <b>Sender:</b>
+  <%=h @message.sender.login %>
+</p>
+
+<p>
+  <b>Recipient:</b>
+  <%=h @message.recipient.login %>
+</p>
+
+<p>
+  <b>Read:</b>
+  <%=h @message.read %>
+</p>
+
+<p>
+  <b>Sent:</b>
+  <%=h @message.created_at %>
+</p>
+
+<p>
+  <b>Subject:</b>
+  <%=h @message.subject %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h @message.body %>
+</p>
+
+
+<%= link_to 'Edit', edit_message_path(@message) %> |
+<%= link_to 'Back', messages_path %>

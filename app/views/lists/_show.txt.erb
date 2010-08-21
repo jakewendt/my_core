@@ -1,0 +1,27 @@
+<%= list.title %>
+
+<% if list.incomplete_items_count > 0 -%>
+<%= "Incomplete:" %>
+<%= "-----------" %>
+<% list.items.incomplete.each do |item| -%>
+ <%= " * #{item.content}" %>
+<% end -%>
+<% end -%>
+
+<% if list.complete_items_count > 0 -%>
+<%= "Complete:" %>
+<%= "-----------" %>
+<% list.items.complete.each do |item| -%>
+ <%= " * #{item.content}" %>
+<% end -%>
+<% end -%>
+
+<%= list.description %>
+
+<%= "Tags: #{list.tag_names}" %>
+
+<%= "Created on #{list.created_at.to_s(:basic)}" %>
+<%= "Last updated on #{list.updated_at.to_s(:basic)}" %>
+
+<%= "----------------------------------------------------------------------" %>
+

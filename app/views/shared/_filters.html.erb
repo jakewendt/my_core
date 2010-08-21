@@ -1,0 +1,8 @@
+<% unless params[:user].blank? && params[:tags].blank? -%>
+<div class='filter_line'>
+<div class='filters'>
+	<%= clear_filter_link_to("Clear user",params.dup,{:user => params[:user]}) if !params[:user].blank? -%>
+	<%= params[:tags].map{|t| filter_links_for(params.dup,{:tags => t}) } if !params[:tags].blank? -%>
+</div><!-- div class='filters' -->
+</div><!-- div class='filter_line' -->
+<% end -%>

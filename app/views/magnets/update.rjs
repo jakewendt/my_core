@@ -1,0 +1,4 @@
+#	gotta reload to get the new positions
+@board.reload.magnets.each do |m|
+	page << "jQuery('#magnet_#{m.id}.magnet').css('z-index',#{m.position});"
+end

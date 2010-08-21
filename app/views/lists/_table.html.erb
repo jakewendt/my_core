@@ -1,0 +1,7 @@
+<% if @lists && @lists.length > 0 %>
+<div id='lists' class='table'>
+<%= render :partial => 'lists/row', :collection => @lists, :as => :list %>
+</div><!-- div id='lists' -->
+<% else %>
+<p>No Lists Found!</p>
+<% end %>

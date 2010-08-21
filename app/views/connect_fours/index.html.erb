@@ -1,0 +1,24 @@
+<h1>Listing Connect Fours</h1>
+
+<table>
+  <tr>
+    <th>Player 1</th>
+    <th>Player 2</th>
+    <th>Turn</th>
+    <th>Winner</th>
+  </tr>
+
+<% @connect_fours.each do |connect_four| %>
+  <tr>
+    <td><%=h connect_four.player_1.login %></td>
+    <td><%=h connect_four.player_2.login %></td>
+    <td><%= ( connect_four.still_playing? ) ? h(connect_four.turn.login) : '&nbsp;' %></td>
+    <td><%= ( connect_four.won? ) ? h(connect_four.winner.login) : '&nbsp;' %></td>
+    <td><%= ( connect_four.still_playing? ) ? link_to( 'Play', connect_four ) : '&nbsp;' %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Connect Four', new_connect_four_path %>

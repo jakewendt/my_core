@@ -1,0 +1,10 @@
+<% form_for :asset, 
+	:url => asset_path(@asset), 
+	:html => { :class => 'confirm_destroy', :method => :delete } do |f| %>
+	<h2>Are you sure you want to destroy this asset?</h2>
+	<%= render :partial => 'show', :locals => { :asset => @asset } %>
+	<p>
+		<%= f.submit "Destroy" %>
+		or <%= link_to "Cancel", assets_path, :class => 'button' %>
+	</p>
+<% end %>

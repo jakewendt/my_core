@@ -1,0 +1,5 @@
+<p id='status'>Getting '<%= @netflix_url -%>'</p>
+<div id='titles'>
+<%= render :partial => 'title', :collection => @titles %>
+</div>
+<%= render :partial => 'next_page' %>

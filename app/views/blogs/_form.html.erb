@@ -1,0 +1,13 @@
+<p><b>Title</b></p>
+<%= f.text_field :title, :class => 'text' %>
+
+<p>
+ <%= f.check_box :public %>
+ <b><%= label 'blog', 'public', 'Allow Public to View?' %></b>
+</p>
+
+<p><b>Description</b></p>
+<%= f.text_area :description %>
+
+<p><b>Tags (comma separated)</b></p>
+<%= f.text_field :tag_names, :class => 'text' %>

@@ -1,0 +1,9 @@
+<h1>New resume</h1>
+
+<%= error_messages_for :resume %>
+
+<% form_for(@resume) do |f| %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+
+  <p><%= f.submit "Create" %></p>
+<% end %>

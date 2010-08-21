@@ -1,0 +1,14 @@
+<% content_for :top_menu, legend -%>
+
+<% controlframe "Magnetic Poetry Boards" do -%>
+	(<%= "#{@boards.total_entries}/#{current_user.boards_count}" -%>)
+	<%#= filter_select_tag %>
+	<%= filter_and_sort_select_tags('Board') %>
+<% end -%>
+
+<%= render :partial => "shared/filters" -%>
+<%= render :partial => 'table' -%>
+
+<%= will_paginate @boards %>
+
+<%= add_search_form(boards_path,params) %>

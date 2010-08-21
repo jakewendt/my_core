@@ -1,0 +1,5 @@
+<%= skill.name.ljust(30) <<
+	skill.level.name.ljust(15) <<
+	skill.start_date.to_s(:month_year).ljust(10) <<
+	skill.end_date_to_s.ljust(10) <<
+	skill.years_experience.to_s.ljust(10) %>

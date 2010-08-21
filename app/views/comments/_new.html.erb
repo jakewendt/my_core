@@ -1,0 +1,12 @@
+<hr/>
+<% if logged_in? %>
+  <h2>Leave a comment</h2>
+  <%= error_messages_for :comment %>
+
+  <% remote_form_for Comment.new, :url => polymorphic_path(objects, { :action => :create_comment }) do |f| %>
+    <div><%= f.text_area :body %></div>
+    <p><%= f.submit "Create" %></p>
+  <% end %>
+<% else %>
+  <h2><%= link_to "Login to leave a comment", login_path %></h2>
+<% end %>

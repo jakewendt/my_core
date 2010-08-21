@@ -1,0 +1,8 @@
+<% content_for :top_menu, notes_menu %>
+
+<%= error_messages_for :note %>
+
+<% form_for(@note) do |f| %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+  <p><%= f.submit "Create" %></p>
+<% end %>

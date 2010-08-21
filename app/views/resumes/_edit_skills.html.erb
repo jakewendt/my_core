@@ -1,0 +1,23 @@
+<p><b>Skills</b>
+( <%= link_to_remote 'add', :url => resume_skills_path(@resume) %> )
+</p>
+
+<table id='skills'>
+<tr>
+  <th>&nbsp;</th>
+  <th>Name</th>
+  <th>Level</th>
+  <th>Start</th>
+  <th>End</th>
+  <th>&nbsp;</th>
+</tr>
+<%#
+	This will be invalid when there aren't any skills as an empty tbody is apparently invalid!
+-%>
+<%= render :partial => 'skills/edit', :collection => @resume.skills, :as => :skill %>
+</table>
+
+<%= sortable_element("skills", 
+    :handle => "dragger",
+    :tag => 'tbody > tr',
+    :url => order_resume_skills_path(@resume) ) %>

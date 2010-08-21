@@ -1,0 +1,35 @@
+<% content_tag_for(:div,photo) do %>
+
+<p><%= link_to_remote "Detach photo",
+    :url => polymorphic_path(@photoable, { :action => :detach_photo } ),
+    :confirm => "Detach photo?\nAre you sure?",
+    :method => :post,
+    :with => "'photo_id=#{photo.id}'",   # polymorphic_path doesn't allow extra parameters
+    :html => { :class => "button" } -%>
+
+<% if photo.file.blank? %>
+  <%= link_to_remote "Delete empty photo",
+    :url => photo_path(photo),
+    :confirm => "Delete empty photo?\nAre you sure?",
+    :method => :delete,
+    :html => { :class => "button" } -%>
+<% else %>
+  <%= link_to_remote "Delete '#{ url_for_file_column(photo, 'file')}'",
+    :url => photo_path(photo),
+    :confirm => "Delete '#{ url_for_file_column(photo, 'file')}'?\nAre you sure?",
+    :method => :delete,
+    :html => { :class => "button" } -%>
+<% end %>
+</p>
+
+<% if photo.file.blank? %>
+  <p><%= file_column_field "photo[#{photo.id}]", "file" %></p>
+<% else %>
+  <p><%= image_tag url_for_file_column(photo, "file"), :class => 'stopphoto' -%></p>
+<% end %>
+
+  <p><b>Caption:</b><br/>
+    <%= text_area("photo[#{photo.id}]", :caption, :class => 'text', :value => photo.caption ) -%>
+  </p>
+  <hr/>
+<% end %>

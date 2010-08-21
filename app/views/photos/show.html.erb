@@ -1,0 +1,13 @@
+<%= render :partial => 'show', :locals => { :photo => @photo } %>
+
+<% if @photo.photoables.count > 0 %>
+<p>Attached to ...</p>
+<ul>
+	<li style='display:none'>Place holder to make valid html when no items</li>
+<% @photo.photoables.each do |photoable| %>
+  <li><%= photoable.class.name -%>: <%= link_to photoable.title, polymorphic_path(photoable) %></li>
+<% end %>
+</ul>
+<% else %>
+<p>This photo is not attached to anything.</p>
+<% end %>

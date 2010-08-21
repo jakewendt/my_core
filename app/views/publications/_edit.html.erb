@@ -1,0 +1,42 @@
+<% content_tag_for(:table, publication) do %>
+<% fields_for "resume[publications_attributes][]", publication do |f| -%>
+  <tr><td>Date</td><td>
+    <%= f.hidden_field :id %>
+    <%= f.text_field :date_string, :class => 'text' %>
+  </td>
+  <td>
+    <%= f.check_box :_delete %>
+    <%= f.label :_delete, 'Destroy' %>
+  </td>
+  </tr>
+
+  <tr>
+    <td>Name</td>
+    <td colspan='2'>
+      <%= f.text_field :name, :class => 'text' %>
+    </td>
+  </tr>
+
+  <tr>
+    <td>Title</td>
+    <td colspan='2'>
+      <%= f.text_field :title, :class => 'text' %>
+    </td>
+  </tr>
+
+  <tr>
+    <td>Contribution</td>
+    <td colspan='2'>
+      <%= f.text_field :contribution, :class => 'text' %>
+    </td>
+  </tr>
+
+  <tr>
+    <td>Link</td>
+    <td colspan='2'>
+      <%= f.text_field :url, :class => 'text' %>
+    </td>
+  </tr>
+
+<% end -%><%# end fields_for -%>
+<% end %><%# end content_tag_for(:table, publication) do -%>

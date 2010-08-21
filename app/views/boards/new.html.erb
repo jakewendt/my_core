@@ -1,0 +1,12 @@
+<%= error_messages_for :board %>
+
+<% form_for(@board) do |f| %>
+<p><b>Name</b></p>
+<%= f.text_field :title, :class => 'text' %>
+
+<p>
+  <%= f.check_box :public %>
+  <b><%= label 'board', 'public', 'Allow Public to View?' %></b>
+</p>
+<p><%= f.submit "Create" %></p>
+<% end %>

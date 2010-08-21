@@ -1,0 +1,8 @@
+<% content_tag_for(:li, item) do %> 
+<% fields_for "list[incomplete_items_attributes][]", item do |f| -%>
+  <%= f.hidden_field :id %>
+  <%= f.text_field :content, :size => 50 %>
+  <%= f.check_box :_delete %>
+  <%= f.label :_delete, 'Destroy' %>
+<% end -%><%# end fields_for -%>
+<% end %><%# end content_tag_for -%>

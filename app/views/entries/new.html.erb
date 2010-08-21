@@ -1,0 +1,9 @@
+<h2>New Blog Entry</h2>
+
+<%= error_messages_for :entry %>
+
+<% form_for :entry, :url => blog_entries_path(@blog) do |f| -%> 
+  <%= render :partial => 'form', :locals => {:f => f} %>
+
+  <p><%= f.submit "Create" %></p>
+<% end %>

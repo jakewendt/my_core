@@ -1,0 +1,30 @@
+<% content_for :top_menu, list_menu(@list) %>
+<% content_for( :head, javascript_include_tag( 'list.js' ) ) if editable?(@list) %>
+
+<%= controlframe h(@list.title), 'note_accept.png' %>
+
+<p>Incomplete: 
+<% if editable?(@list) %>
+( <%= link_to( "Reorder", nil, :id => "reorder" ) %>
+<%= link_to( "Finished reordering", nil, :id => "end_reorder", :style => "display: none;" ) %> )
+( <%= link_to( "Mark all complete", mark_all_complete_list_path(@list), :id => "mark_all_complete" ) %> )
+( <%= link_to( "Mark all incomplete", mark_all_incomplete_list_path(@list), :id => "mark_all_incomplete" ) %> )
+<% end %>
+</p>
+
+<ul id='items' class='items' >
+	<li style='display:none'>Place holder to make valid html when no items</li>
+	<%= render :partial => 'items/show', :collection => @list.items.incomplete, :as => :item %>
+</ul>
+
+<% if editable?(@list) %>
+	<div><%= render :partial => 'items/new', :object => Item.new %></div>
+<% end %>
+
+<p>Complete:</p>
+<ul id='completed_items' class='items'>
+	<li style='display:none'>Place holder to make valid html when no items</li>
+	<%= render :partial => 'items/show', :collection => @list.items.complete, :as => :item %>
+</ul>
+
+<p id='tag_names'>Tags: <%= @list.tag_names -%></p>

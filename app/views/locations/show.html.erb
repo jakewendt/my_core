@@ -1,0 +1,9 @@
+<% content_for :top_menu, assets_menu %>
+<% content_for :top_menu, location_menu(@location) %>
+
+<%= controlframe h("Assets in location #{h(@location.name)}") %>
+
+<%= render :partial => 'assets/table', :collection => @assets, :as => :asset, 
+	:locals => { :assets_length => @assets.length } %>
+
+<%= will_paginate @assets %>

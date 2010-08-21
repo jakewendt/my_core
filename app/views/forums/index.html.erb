@@ -1,0 +1,31 @@
+<h1>Forums
+<% if logged_in? and current_user.has_role?('administrator') -%> 
+  <%= link_to image_tag('add.png'), new_forum_path %>
+<% end -%> 
+</h1>
+
+<table id="forums"> 
+  <tr> 
+    <th class="name">Forum name</th> 
+    <th class="topic">Topics</th> 
+    <th class='manage'>&nbsp;</th> 
+  </tr> 
+  <% @forums.each do |forum| -%> 
+    <tr class="<%= cycle('odd', 'even') %>"> 
+      <td class="name"> 
+          <%= link_to h(forum.name), forum_topics_path(forum) -%>
+      </td> 
+      <td class="topic count"><%= forum.topics_count %></td> 
+      <td class='manage'>
+        <%# manage_forum(forum) %>
+        <% if logged_in? and current_user.has_role?('administrator') -%> 
+          <small> 
+            [<%= link_to 'edit', edit_forum_path(forum) %>]
+            [<%= link_to 'delete', forum_path(forum), :method => :delete, 
+              :confirm => 'Are you sure? This will delete this entire forum.' -%>]
+          </small> 
+        <% end -%>
+      </td> 
+    </tr> 
+  <% end -%> 
+</table>

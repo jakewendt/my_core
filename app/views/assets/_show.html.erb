@@ -1,0 +1,59 @@
+<p>
+  <b>Title:</b>
+  <%=h asset.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=sanitize(textilize(asset.description)) %>
+</p>
+
+<p>
+  <b>Model:</b>
+  <%=h asset.model %>
+</p>
+
+<p>
+  <b>Serial:</b>
+  <%=h asset.serial %>
+</p>
+
+<p>
+  <b>Cost:</b>
+  <%= number_to_currency(asset.cost) %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%= number_to_currency(asset.value) %>
+</p>
+
+<p>
+  <b>Acquired on:</b>
+  <%=h asset.acquired_on %>
+</p>
+
+<p>
+  <b>Used on:</b>
+  <%=h asset.used_on %>
+</p>
+
+<p>
+  <b>Sold on:</b>
+  <%=h asset.sold_on %>
+</p>
+
+<p>
+  <b>Location(s):</b>
+  <%= asset.locations.map{|location| link_to(h(location.name),location)}.join(', ') %>
+</p>
+
+<p>
+  <b>Creator(s):</b>
+  <%= asset.creators.map{|creator| link_to(h(creator.name),creator)}.join(', ') %>
+</p>
+
+<p>
+  <b>Category(s):</b>
+  <%= asset.categories.map{|category| link_to(h(category.name),category)}.join(', ') %>
+</p>

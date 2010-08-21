@@ -1,0 +1,13 @@
+<% form_for :blog, 
+	:url => blog_path(@blog), 
+	:html => { :class => 'confirm_destroy', :method => :delete } do |f| %>
+	<h2>Are you sure you want to destroy this blog?</h2>
+	
+	<p><%= @blog.title -%></p>
+	<p><%= @blog.description -%></p>
+
+	<p>
+		<%= f.submit "Destroy" %>
+		or <%= link_to "Cancel", blogs_path, :class => 'button' %>
+	</p>
+<% end %>

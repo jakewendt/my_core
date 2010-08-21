@@ -1,0 +1,24 @@
+<p><b>Title</b></p>
+<%= f.text_field :title, :class => 'text' %>
+
+<p>
+  <%= f.check_box :public %>
+  <b><%= label 'note', 'public', 'Allow Public to View?' %></b>
+</p>
+
+<p>
+  <%= f.check_box :hide %>
+  <b><%= label 'note', 'hide', "Hide in 'MyStuff'?" %></b>
+</p>
+
+<p>
+  <%= f.check_box :textilize %>
+  <b><%= label 'note', 'textilize', "Show body using " %></b>
+	<%= link_to "Textile?", '/help/textile' %>
+	<span>(Do NOT use textile if encrypting!)</span>
+</p>
+
+<%= f.text_area :body %>
+
+<p><b>Tags (comma separated)</b></p>
+<%= f.text_field :tag_names, :class => 'text' %>

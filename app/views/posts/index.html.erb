@@ -1,0 +1,41 @@
+<h3> 
+  <%= link_to h(@topic.forum.name), forum_path(@topic.forum) -%> > 
+  <%=h @topic.name -%> 
+</h3> 
+
+<table id="posts"> 
+  <tr class="<%= cycle('odd', 'even') %>"> 
+    <th class="author">Author</th> 
+    <th class="post">Message</th> 
+  </tr> 
+  <% @posts.each do |post| -%> 
+
+    <tr class="<%= cycle('odd', 'even') -%>"> 
+      <td class="author"> 
+        <%= link_to h(post.user.login), user_path(post.user) -%><br /> 
+        <small> 
+          Member since <%= post.user.created_at.to_s(:short) %><br /> 
+          <%= pluralize(post.user.posts_count, 'post') -%> 
+        </small> 
+        <%# if logged_in? and ( post.user == current_user || current_user.has_role?('administrator') ) -%> 
+        <% if editable?(post) -%> 
+          <br /> 
+          <small> 
+            <%= link_to 'Edit', edit_post_path(post) -%> | 
+            <%= link_to 'Delete', post_path(post), :method => :delete, 
+              :confirm => 'Are you sure you wish to delete this post?' -%> 
+          </small> 
+        <% end -%> 
+      </td> 
+      <td class="post"><%= textilize(post.body) -%></td> 
+    </tr> 
+  <% end -%> 
+</table> 
+
+<p> 
+  <% if logged_in? -%> 
+    <%= link_to 'Post Reply', new_topic_post_path(@topic) -%> 
+  <% else -%> 
+    <%= link_to 'Login to post a reply', login_path -%> 
+  <% end -%> 
+</p> 

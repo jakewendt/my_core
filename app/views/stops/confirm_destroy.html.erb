@@ -1,0 +1,10 @@
+<% form_for :stop, 
+	:url => stop_path(@stop), 
+	:html => { :class => 'confirm_destroy', :method => :delete } do |f| %>
+	<h2>Are you sure you want to destroy this stop?</h2>
+	<p><%= @stop.title -%></p>
+	<p>
+		<%= f.submit "Destroy" %>
+		or <%= link_to "Cancel", stop_path(@stop), :class => 'button' %>
+	</p>
+<% end %>

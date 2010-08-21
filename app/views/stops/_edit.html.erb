@@ -1,0 +1,30 @@
+<%= error_messages_for :stop, :object => stop %>
+<% content_tag_for( :div, stop ) do %>
+<table class='stop' id="table_stop_<%=stop.id-%>" width='100%'><tr>
+
+<td class='dragger'>
+<span style='font-family: arial'>^</span>
+<br/><br/><br/>DRAG<br/><br/><br/>
+<span style='font-family: arial'>v</span>
+</td>
+
+<td><div id="minimap_<%=stop.id-%>" class='minimap_canvas'>
+<%= render :partial => "trips/gmapjs", :locals => { :stop => stop } %>
+</div></td>
+
+<td>
+<p>Stop Name      <%= text_field "stop[]", "title", :class => 'text', :object => stop %></p>
+<p>Stop Latitude  <%= text_field "stop[]", "lat", :class => 'text', :object => stop, :readonly => true %></p>
+<p>Stop Longitude <%= text_field "stop[]", "lng", :class => 'text', :object => stop, :readonly => true %></p>
+<p>
+<%= link_to 'Destroy This Stop', confirm_destroy_stop_path(stop), 
+	:title => stop.title, :class => "ajax_confirm_destroy button" -%>
+<%#= link_to_remote 'Destroy This Stop',
+  :url => stop_path(stop), 
+  :confirm => "Delete '#{stop.title}'?\nAre you sure?", 
+  :method => :delete,
+  :html => { :class => "button" } -%>
+</p>
+</td>
+</tr></table><!-- id="table_stop_<%=stop.id-%>" -->
+<% end %><!-- id="stop_<%=stop.id-%>" >-->

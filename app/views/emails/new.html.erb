@@ -1,0 +1,15 @@
+<%= error_messages_for :email %>
+
+<% form_for(@email) do |f| %>
+
+<%#= f.hidden_field :sender_id %>
+<%= f.hidden_field :recipient_id %>
+
+<p><label for="subject">Subject</label></p>
+<%= f.text_field :subject, :class => 'text' %>
+
+<p><label for="body">Body</label></p>
+<%= f.text_area :body %>
+
+<p><%= f.submit 'Send' %></p>
+<% end %>

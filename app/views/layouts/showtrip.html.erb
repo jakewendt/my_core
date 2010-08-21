@@ -1,0 +1,53 @@
+
+
+<%# I DON'T THINK THAT THIS IS USED ANYMORE %>
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title><%= @trip.title %></title>
+  <%= stylesheet_link_tag 'scaffold', 'style', 'showtrip' %>
+  <%= javascript_include_tag 'prototype', 'tripmap' %>
+
+<% if request.env["SERVER_NAME"] =~ /jakewendt/ %>
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAB-v7nZ2fkxF0-r3MI9yZuhQpAt4bU7HiNDPgoQAogh38KYDQ_xQZgyFJX2xGvLku3dB9r3BLS7SmFg" type="text/javascript"></script>
+<% else %>
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAB-v7nZ2fkxF0-r3MI9yZuhROBIwYeOsmfolgOSVewupk_6dWgBSiMbXhTbzMOg1qbRS4zmp-4tqQJA" type="text/javascript"></script>
+<% end %>
+<!-- generate link data to create the rss icon in the url field -->
+<%= auto_discovery_link_tag( :rss, trip_url(@trip, :format => :rss) ) %>
+</head>
+<body onload="initialize(<%=@trip.lat-%>, <%=@trip.lng-%>, <%=@trip.zoom-%>)" onunload="GUnload()">
+<div id='container'>
+<div id='tripmap'></div>
+<%= yield  %>
+<div id='footer'>
+<hr/>
+<% if logged_in? %>
+  <%= link_to h(current_user.login.capitalize), user_path(current_user) %> |
+  <%= link_to 'Trips', trips_path %> |
+  <%= link_to 'Sign Out', logout_path %> |
+  <%= link_to 'Contact', compose_path %> |
+  <% if current_user.has_role?('administrator') %>
+    <%= link_to 'USERS', users_path %> |
+    <%= link_to 'PAGES', pages_path %> |
+  <% end %>
+<% else %>
+  <%= link_to 'Sign In', login_path %> |
+  <%= link_to 'Sign Up', signup_path %> |
+  <%= link_to 'Forgot Password?', forgot_password_path %> |
+<% end %>     
+<%# for page in Page.find(:all, :order => :position) %>
+<%# for page in @pages %>
+<% for page in Page.find_all %>
+  <%= link_to page.title, page_path(page) %>
+  <%= if !page.last?; '|'; end %>
+<% end %>
+</div><!-- footer -->
+</div><!-- container -->
+</body>
+</html>

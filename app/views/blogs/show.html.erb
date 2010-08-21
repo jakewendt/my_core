@@ -1,0 +1,17 @@
+<!-- generate link data to create the rss icon in the url field -->
+<% content_for :head, auto_discovery_link_tag( :rss, blog_url(@blog, :format => :rss) ) %>
+<% content_for :top_menu, blog_menu(@blog) %>
+
+<%= controlframe h(@blog.title) %>
+
+<hr/>
+
+<div id='blog_entries'>
+<% if @blog.entries_count > 0 %>
+  <%= render :partial => 'entries/show', :collection => @entries, :as => :entry %>
+<% else %>
+  <p>This blog currently has no entries.</p>
+<% end %>
+</div>
+
+<p id='tag_names'>Tags: <%= @blog.tag_names %></p>

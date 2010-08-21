@@ -1,0 +1,21 @@
+<%# this has the class bar so that the completed date is right justified %>
+<% content_tag_for( :li, item, :class => 'bar' ) do %>
+ <% if editable?(item.list) %>
+  <% form_for(item, :url => item_path(item), :method => :put ) do |f| %>
+   <%= image_tag 'drag.gif', :class => 'dragger' %>
+   <%= f.check_box 'completed', {
+       :class => 'item_checkbox',
+       :id => "item_#{item.id}_completed" 
+     }, 'true', 'false' %>
+   <%# for some reason this shows a label of "Completed" if content is empty %>
+   <%= label 'item[]', 'completed' , h((item.content.blank?)?"_":item.content), :object => item %>
+  <% end %>
+ <% else %>
+  <%= h(item.content) %>
+ <% end %>
+ <span class='manage'>
+ <% if item.completed && item.completed_at %>
+  <%= item.completed_at.to_s(:basic) %>
+ <% end %>
+ </span>
+<% end %>

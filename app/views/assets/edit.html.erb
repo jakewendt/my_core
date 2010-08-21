@@ -1,0 +1,15 @@
+<h1>Editing asset</h1>
+<%= error_messages_for :asset %>
+
+<% form_for(@asset) do |f| %>
+ <%# title is not in form due to batch_create %>
+ <div class='field' id='title'>
+  <%= f.label :title %><br/>
+  <%= f.text_field :title %>
+ </div>
+ <%= render :partial => 'form', :locals => { :f => f } %>
+ <%= hidden_field_tag( :ids, @ids.join(',') ) if !@ids.blank? %>
+ <p id='button_row'>
+  <%= f.submit( (@ids.blank?)?'Update':"Update and Edit #{@ids.length} More" ) %>
+&nbsp;<%= link_to 'Cancel and Show', @asset, :class => 'button' %> </p>
+<% end %>

@@ -1,0 +1,13 @@
+<%= error_messages_for :photo %>
+
+<% form_for(@photo, :html => { :multipart=> true } ) do |f| %>
+<p><b>File</b></p>
+<%= file_column_field 'photo', 'file' %>
+
+<p><b>Caption</b></p>
+<%= f.text_area  :caption %>
+
+<p>
+<%= f.submit "Create" %>
+</p>
+<% end %>

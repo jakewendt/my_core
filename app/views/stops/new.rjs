@@ -1,0 +1,2 @@
+page.insert_html :top, "stops", :partial => 'stops/edit', :locals => { :stop => @stop }
+page.visual_effect :highlight, dom_id(@stop, :table), :duration => 3

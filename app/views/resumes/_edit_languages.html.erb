@@ -1,0 +1,15 @@
+<p><b>Languages</b>
+( <%= link_to_remote 'add', :url => resume_languages_path(@resume) %> )
+</p>
+<table id='languages'><tr>
+  <th>&nbsp;</th>
+  <th>Name</th>
+  <th>Level</th>
+  <th>&nbsp;</th>
+</tr>
+<%= render :partial => 'languages/edit', :collection => @resume.languages, :as => :language %>
+</table>
+<%= sortable_element("languages", 
+    :handle => "dragger",
+    :tag => 'tbody > tr',
+    :url => order_resume_languages_path(@resume) ) %>

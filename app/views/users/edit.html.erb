@@ -1,0 +1,21 @@
+<%= error_messages_for :user %>
+
+<% form_for :user, :url => user_url(@user), 
+  :html => { :id => 'edit_user', :multipart=> true , :method => :put } do |f| %>
+<h2>Edit Your Account</h2>
+<p><b>Email:</b></p>
+<%= f.text_field :email, :class => 'text' %>
+
+<!--
+<p><b>Add an image:</b><br/>
+<%= file_column_field "user", "image" %></p>
+-->
+
+<p>
+<%= f.submit 'Save' %>&nbsp;
+<%= link_to 'Cancel', user_path(current_user), :class => 'button' %>&nbsp;
+<%= link_to 'Show Profile', user_path(@user), :class => 'button' %>&nbsp;
+<%= link_to 'Change Password', change_password_path, :class => 'button' %>
+</p>
+
+<% end %>

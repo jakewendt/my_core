@@ -1,0 +1,32 @@
+<%#
+	classes = ['row']
+	classes.push('otheruser') if blog.user_id != current_user.id
+	classes.push('public') if blog.public
+-%>
+<%# content_tag_for(:div, blog, :class => classes.join(' ') ) do -%>
+<% content_tag_for(:div, blog, :class => classes_for_blog(blog) ) do -%>
+ <div class='title'>
+  <span class='value'><%= link_to h(blog.title), blog -%></span>
+ </div>
+ <div class='manage'><%= manage_links_for( blog ) -%></div>
+ <div class='user'>
+  <span class='label'>Owner:</span>
+  <span class='value'>
+		<%= filter_link_to(h(blog.user.login),params.dup,{:user => blog.user.login}) %>
+	</span>
+ </div>
+ <div class='hide'>
+  <span class='label'><%= (blog.hide)?"Hidden":"Visible" -%></span>
+ </div>
+ <div class='public'>
+  <span class='label'><%= (blog.public)?"PUBLIC":"Private" -%></span>
+ </div>
+ <div class='entries_count'>
+  <span class='label'>Entries:</span>
+  <span class='value'><%= blog.entries_count -%></span>
+ </div>
+ <div class='tags'>
+  <span class='label'>Tags:</span>
+  <span class='value'><%= blog.tags.map{|t| filter_link_to(h(t.name),params.dup,{:tags => t.name}) }.join(', ') %></span>
+ </div>
+<% end -%><!-- div class='blog -->

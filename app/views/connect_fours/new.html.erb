@@ -1,0 +1,13 @@
+<h1>New Connect Four</h1>
+
+<% form_for(@connect_four) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :player_2_id, "Opponent:" %>
+    <%= f.collection_select(:player_2_id, User.all(:order => 'login'), :id, :login ) -%>
+  </p>
+  <p>
+    <%= f.submit 'Challenge' %>
+  </p>
+<% end %>

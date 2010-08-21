@@ -1,0 +1,4 @@
+<%# an html id CANNOT start with a number or it is invalid %>
+<% content_tag_for :span, magnet, :style=>"top:#{magnet.top}px;left:#{magnet.left}px;z-index:#{magnet.position}" do -%>
+<%=h magnet.word -%>
+<% end %>

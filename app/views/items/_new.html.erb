@@ -1,0 +1,9 @@
+<% form_for(new, 
+	:url => list_items_path(@list), 
+	:method => :post) do |f| %>
+<p>New item:
+<%= f.text_field :content, :size => 50 -%>
+<span id='posting_item'><%= image_tag 'spinner.gif' -%> Sending</span>
+</p> 
+<% end %>
+<script type="text/javascript">$("#item_content").focus()</script>

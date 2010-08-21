@@ -1,0 +1,35 @@
+user_id = <%= current_user.id %>;
+
+function add_column_listeners() {
+	jQuery('.connect_four .column').unbind();
+	if( user_id == turn_user_id ){
+		jQuery('.connect_four .column').hover(
+			function() { $(this).css('background-color','green'); },
+			function() { $(this).css('background-color','transparent'); }
+		);
+		jQuery('.connect_four .column').click(function() {
+			c4_id = $('.connect_four').attr('id').split('_').pop();
+			col_id = $(this).attr('id').split('_').pop();
+			jQuery.ajax({
+				type: "POST",
+				url: "/connect_fours/"+c4_id,
+				data: {
+					_method:'put',
+					column:col_id,
+					/* Need to check because testing turns forgery protection off */
+					authenticity_token:"<%=if (protect_against_forgery?);form_authenticity_token();end-%>"
+				},
+				dataType: "script"
+			});
+		});
+	}
+}
+
+function reload_board() {
+	c4_id = $('.connect_four').attr('id').split('_').pop();
+	jQuery.ajax({
+		type: "GET",
+		url: "/connect_fours/"+c4_id,
+		dataType: "script"
+	});
+}

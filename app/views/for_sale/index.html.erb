@@ -1,0 +1,14 @@
+<% content_for :head, javascript_include_tag('assets') -%>
+
+<% controlframe "Assets For Sale" do -%>
+	(<%= "#{@assets.total_entries}" -%>)
+	<%= sort_select_tags('Asset') %>
+<% end -%>
+
+<%= render :partial => "assets/filter_line" %>
+
+<%= render :partial => 'assets/table' -%>
+
+<%= will_paginate @assets %>
+
+<%= add_search_form(assets_path,params) %>

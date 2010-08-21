@@ -1,0 +1,35 @@
+<script type='text/javascript'>
+  var map_<%=stop.id-%> = new GMap2(document.getElementById("minimap_<%=stop.id-%>"));
+  map_<%=stop.id-%>.setCenter(new GLatLng(<%=stop.lat-%>,<%=stop.lng-%>), 8);
+  map_<%=stop.id-%>.addControl(new GSmallMapControl());
+
+  var marker_<%=stop.id-%> = new GMarker(map_<%=stop.id-%>.getCenter(), {draggable: true});
+
+  GEvent.addListener(marker_<%=stop.id-%>, "dragend", function() {
+    var latlng = marker_<%=stop.id-%>.getLatLng();
+    var lat = latlng.lat().toString();
+    var lng = latlng.lng().toString();
+    $("#stop_<%=stop.id-%>_lat").val(lat);
+    $("#stop_<%=stop.id-%>_lng").val(lng);
+    jQuery.post("/stops/<%=stop.id-%>/update_latlng", {
+      authenticity_token: "<%=if (protect_against_forgery?);form_authenticity_token();end-%>",
+      _method:'put',
+      lat: lat,
+      lng: lng
+    }, function(){}, 'script'); 
+/*
+    $("stop_<%=stop.id-%>_lat").value = lat;
+    $("stop_<%=stop.id-%>_lng").value = lng;
+    new Ajax.Request("/stops/<%=stop.id-%>/update_latlng", {
+      asynchronous:true, 
+      method:'put', 
+      parameters:{
+        lat: lat,
+        lng: lng,
+        authenticity_token: "<%=if (protect_against_forgery?);form_authenticity_token();end-%>"
+      }
+    });
+*/
+  });
+  map_<%=stop.id-%>.addOverlay(marker_<%=stop.id-%>);
+</script>

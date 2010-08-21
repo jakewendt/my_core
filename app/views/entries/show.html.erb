@@ -1,0 +1,24 @@
+<% content_for :top_menu, entry_menu(@entry) %>
+
+<% controlframe "Blog:" do %>
+  <%= link_to h(@entry.blog.title), blog_path(@entry.blog) %>
+<% end %>
+
+<p class='control bar'>
+  <b>Title:</b>
+  <%=h @entry.title %>
+</p>
+
+<div class='description'><%= sanitize(textilize(@entry.body)) %></div>
+
+<div id='photos'>
+<%= render :partial => 'photos/show', :collection => @entry.photos, :as => :photo %>
+</div>
+
+<p class='footnote'>Comments: <span id='comments_count'><%= @entry.comments_count %></span></p>
+<hr/>
+
+<div id='comments'>
+<%= render :partial => 'comments/show', :collection => @entry.comments, :as => :comment %>
+</div>
+<%= render :partial => 'comments/new', :locals => {:objects => [@entry] } %>

@@ -1,0 +1,35 @@
+<% content_tag_for(:table, job) do %>
+<% fields_for "resume[jobs_attributes][]", job do |f| -%>
+  <tr>
+    <td>Start Date:</td>
+    <td>
+      <%= f.hidden_field :id %>
+      <%= f.text_field :start_date_string, :class => 'text' %>
+    </td> 
+    <td>End Date:</td>
+    <td>
+      <%= f.text_field :end_date_string, :class => 'text' %>
+    </td>
+    <td>
+      <%= f.check_box :_delete %>
+      <%= f.label :_delete, 'Destroy' %>
+    </td>
+  </tr>
+
+  <tr><td colspan='5'>
+    <%= f.text_field :title, :class => 'text' %>
+  </td></tr>
+
+  <tr><td colspan='5'>
+    <%= f.text_field :company, :class => 'text' %>
+  </td></tr>
+
+  <tr><td colspan='5'>
+    <%= f.text_field :location, :class => 'text' %>
+  </td></tr>
+
+  <tr><td colspan='5'>
+    <%= f.text_area :description, :class => 'text' %>
+  </td></tr>
+<% end -%><%# end fields_for -%>
+<% end %><%# end content_tag_for(:table, job) do -%>

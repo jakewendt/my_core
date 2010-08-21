@@ -1,0 +1,35 @@
+<h3><%=h @forum.name -%></h3> 
+
+<table id="topics"> 
+  <tr> 
+    <th class="name">Topics</th> 
+    <th class="reply count">Posts</th> 
+    <th class="author count">Author</th> 
+  </tr> 
+  <% @topics.each do |topic| -%> 
+    <tr class="<%= cycle('odd', 'even') -%>"> 
+      <td class="name"> 
+        <%= link_to topic.name, topic_posts_path( topic) -%> 
+        <% if logged_in? and current_user.has_role?('administrator') -%> 
+          <br /> 
+          <small> 
+            [<%= link_to 'edit', edit_topic_path( topic ) -%>]
+            [<%= link_to 'delete', topic_path( topic ),
+              :method => :delete, 
+              :confirm => 'Are you sure? This will delete this entire topic.' -%>]
+          </small> 
+        <% end -%> 
+      </td> 
+      <td class="reply count"><%= topic.posts_count %></td> 
+      <td class="author count"><%= link_to topic.user.login, user_path( topic.user ) %></td> 
+    </tr> 
+  <% end -%> 
+</table> 
+
+<p> 
+  <% if logged_in? -%> 
+    <%= link_to 'Post New Topic', new_forum_topic_path( @forum ) -%> 
+  <% else -%> 
+    <%= link_to 'Login to post a new topic', login_path -%>
+  <% end -%> 
+</p> 

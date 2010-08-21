@@ -1,0 +1,10 @@
+<div id='edit_topic'>
+<h1>Editing topic</h1> 
+<%= error_messages_for :topic %> 
+<% form_for(:topic, :url => topic_path( @topic ), 
+    :html => { :id => 'edit_topic_form', :method => :put }) do |f| %> 
+  <p>Subject:</p> 
+	<%= f.text_field :name, :class => 'text' -%>
+  <p><%= f.submit "Update" %>&nbsp;<%= link_to "Cancel and View", @topic, :class => 'button' %></p> 
+<% end %> 
+</div>

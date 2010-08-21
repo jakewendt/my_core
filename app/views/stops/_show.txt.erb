@@ -1,0 +1,4 @@
+<%= "#{stop.title} (created on #{stop.created_at.to_s(:basic)})\n" %>
+<%= "#{stop.description}\n" %>
+<%= "Comments ... \n" %>
+<%= render :partial => 'comments/show', :collection => stop.comments, :as => :comment %>

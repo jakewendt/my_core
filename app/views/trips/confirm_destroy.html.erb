@@ -1,0 +1,11 @@
+<% form_for :trip, 
+	:url => trip_path(@trip), 
+	:html => { :class => 'confirm_destroy', :method => :delete } do |f| %>
+	<h2>Are you sure you want to destroy this trip?</h2>
+	<p><%= @trip.title -%></p>
+	<p><%= @trip.description -%></p>
+	<p>
+		<%= f.submit "Destroy" %>
+		or <%= link_to "Cancel", trips_path, :class => 'button' %>
+	</p>
+<% end %>

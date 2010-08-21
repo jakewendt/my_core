@@ -1,0 +1,23 @@
+<tr>
+<th class='control bar'>
+<%= link_to section.capitalize.constantize.to_s.pluralize, polymorphic_path(section.constantize.new) %>: 
+<span id="<%=section.downcase.pluralize-%>_count">
+<%= @user.send(section.downcase.pluralize+"_count") %>
+</span>
+ ( <%= link_to "Create new #{section.downcase.singularize}", 
+    polymorphic_path( section.constantize.new, { :action => :new } ) %> ) 
+<span class='manage'>
+<% if "Note List".include?(section.capitalize.singularize) %>
+<%# none of these really work, I guess that no one though of using a formatted polymorphic route for an index %>
+<%# link_to "TxT", formatted_polymorphic_path([section.constantize.new, :txt ]) %>
+<%# link_to "TxT", formatted_polymorphic_url([section.constantize.new, :txt ]) %>
+<%# link_to "TxT", polymorphic_url( section.constantize.new, { :action => :formatted, :format => :txt }) %>
+<%# link_to "TxT", polymorphic_path( section.constantize.new, { :format => :txt } ) %>
+Save all as ...
+<%= link_to "TXT", polymorphic_path( section.constantize.new )+".txt" %> | 
+<%= link_to "PDF", polymorphic_path( section.constantize.new )+".pdf" %>
+<% end %>
+</span>
+</th>
+</tr>
+<tr><td><%= render :partial => "#{section.downcase.pluralize}/table" %></td></tr>

@@ -1,0 +1,11 @@
+<% content_for :top_menu, category_menu(@category) %>
+
+<h1>Editing category</h1>
+
+<% form_for(@category) do |f| %>
+	<%= f.error_messages %>
+
+	<%= f.label :name %><br />
+	<%= f.text_field :name %>
+	<p><%= f.submit 'Update' %>&nbsp;<%= link_to 'Cancel and Show', @category, :class => 'button' %></p>
+<% end %>

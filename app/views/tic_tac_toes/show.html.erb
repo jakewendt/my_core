@@ -1,0 +1,9 @@
+<% content_for :head, javascript_include_tag( 'tic_tac_toe' ) -%>
+<% content_for :juggernaut do -%>
+ <%= javascript_include_tag( :jqjuggernaut ) %>
+ <%= juggernaut(:client_id => current_user.id, :channels => [dom_id(@tic_tac_toe)]) -%>
+<% end -%>
+<% javascript_tag do -%>
+player_class = "<%= (current_user.id == @tic_tac_toe.player_1_id)?'player_1':'player_2' %>";
+<% end %>
+<%= render :partial => 'game_board' -%>

@@ -1,0 +1,16 @@
+<p><b>Title</b></p>
+<%= f.text_field :title, :class => 'text' %>
+
+<p>
+  <%= f.check_box :public %>
+  <b><%= label 'resume', 'public', 'Allow Public to View?' %></b>
+</p>
+
+<p><b>Objective</b></p>
+<%= f.text_area :objective %>
+
+<p><b>Summary</b></p>
+<%= f.text_area :summary %>
+
+<p><b>Other</b></p>
+<%= f.text_area :other %>

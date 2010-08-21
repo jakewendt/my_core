@@ -1,0 +1,12 @@
+<%= section_header 'Skills:' %>
+<div class='resume_section'>
+<table id='skills'><tr>
+<th>Name</th>
+<th>Level</th>
+<th>First Use</th>
+<th>Last Use</th>
+<th>Years Exp.</th>
+</tr>
+<%= render :partial => 'skills/show', :collection => skills, :as => :skill %>
+</table>
+</div>

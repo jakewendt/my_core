@@ -1,0 +1,47 @@
+<p>
+  <b>Contact Seller:</b>
+  <%= link_to asset.user.login, new_message_path({
+		:recipient_id => asset.user.id,
+		:subject      => "Re: " + asset.title
+	}) %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h asset.title %>
+</p>
+
+<p>
+  <b>Model:</b>
+  <%=h asset.model %>
+</p>
+
+<p>
+  <b>Serial:</b>
+  <%=h asset.serial %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= number_to_currency(asset.price) %>
+</p>
+
+<p>
+  <b>Location(s):</b>
+  <%= asset.locations.map{|location| link_to(h(location.name),location)}.join(', ') %>
+</p>
+
+<p>
+  <b>Creator(s):</b>
+  <%= asset.creators.map{|creator| link_to(h(creator.name),creator)}.join(', ') %>
+</p>
+
+<p>
+  <b>Category(s):</b>
+  <%= asset.categories.map{|category| link_to(h(category.name),category)}.join(', ') %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=sanitize(textilize(asset.description)) %>
+</p>

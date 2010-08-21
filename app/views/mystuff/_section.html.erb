@@ -1,0 +1,22 @@
+<div class='section'>
+<div class='leftbar'>
+<%= link_to section.capitalize.constantize.to_s.pluralize, polymorphic_path(section.constantize.new) %>: 
+<span id="<%=section.downcase.pluralize-%>_count">
+<%= @user.send(section.downcase.pluralize+"_count") %>
+</span>
+ ( <%= link_to "Create new #{section.downcase.singularize}", 
+    polymorphic_path( section.constantize.new, { :action => :new } ) %> ) 
+</div>
+
+<div class='rightbar'>
+<% if "Note List Blog Trip Resume".include?(section.capitalize.singularize) %>
+Save all as ...
+<%= link_to "TXT", polymorphic_path( section.constantize.new )+".txt" %> | 
+<%= link_to "PDF", polymorphic_path( section.constantize.new )+".pdf" %>
+<% else %>
+&nbsp;<!-- placeholder to keep 'section' at correct height -->
+<% end %>
+</div>
+</div>
+
+<%= render :partial => "#{section.downcase.pluralize}/table" %>

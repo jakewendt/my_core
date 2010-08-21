@@ -1,0 +1,21 @@
+<% if @photos && @photos.length > 0 %>
+<table id='photos'>
+  <tr>
+    <%#= user_th %>
+    <th>File</th>
+    <th class='count'>Photoables<br/>Count</th>
+    <th>&nbsp;</th>
+  </tr>
+
+<% @photos.each do |photo| %>
+  <% content_tag_for(:tr, photo, :class => cycle('odd', 'even') ) do %>
+    <%#= user_td(photo.user) %>
+    <td><%= link_to (photo.file)?url_for_file_column(photo,'file'):"EMPTY FILE NAME", photo %></td>
+    <td class='count'><%= photo.photoables.count %></td>
+    <td class='manage'><%= manage_links_for( photo ) %></td>
+  <% end %>
+<% end %>
+</table>
+<% else %>
+  <p>No Photos Found!</p>
+<% end %>

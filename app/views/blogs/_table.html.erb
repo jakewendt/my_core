@@ -1,0 +1,7 @@
+<% if @blogs && @blogs.length > 0 %>
+<div id='blogs' class='table'>
+<%= render :partial => 'blogs/row', :collection => @blogs, :as => :blog %>
+</div><!-- div id='blogs' -->
+<% else %>
+<p>No Blogs Found!</p>
+<% end %>

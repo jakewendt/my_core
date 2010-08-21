@@ -1,0 +1,20 @@
+<h1>Locations</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Assets Count</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+
+<% @locations.each do |location| -%>
+  <tr class='<%= cycle('odd', 'even') -%>'>
+    <td><%= link_to h(location.name), location %></td>
+    <td><%= location.assets_count %></td>
+    <td><%= link_to 'Edit', edit_location_path(location) %></td>
+    <td><%= link_to 'Destroy', confirm_destroy_location_path(location), 
+			:title => location.name, :class => 'confirm_destroy' %></td>
+  </tr>
+<% end -%>
+</table>

@@ -1,0 +1,32 @@
+<%#
+	classes = ['row']
+	classes.push('otheruser') if board.user_id != current_user.id
+	classes.push('public') if board.public
+-%>
+<%# content_tag_for(:div, board, :class => classes.join(' ') ) do -%>
+<% content_tag_for(:div, board, :class => classes_for_board(board) ) do -%>
+ <div class='title'>
+  <span class='value'><%= link_to h(board.title), board -%></span>
+ </div>
+ <div class='manage'><%= manage_links_for( board ) -%></div>
+ <div class='user'>
+  <span class='label'>Owner:</span>
+  <span class='value'>
+		<%= filter_link_to(h(board.user.login),params.dup,{:user => board.user.login}) %>
+	</span>
+ </div>
+ <div class='hide'>
+  <span class='label'><%= (board.hide)?"Hidden":"Visible" -%></span>
+ </div>
+ <div class='public'>
+  <span class='label'><%= (board.public)?"PUBLIC":"Private" -%></span>
+ </div>
+ <div class='magnets_count'>
+  <span class='label'>Magnets:</span>
+  <span class='value'><%= board.magnets_count -%></span>
+ </div>
+ <div class='tags'>
+  <span class='label'>Tags:</span>
+  <span class='value'><%= board.tags.map{|t| filter_link_to(h(t.name),params.dup,{:tags => t.name}) }.join(', ') %></span>
+ </div>
+<% end -%><!-- div class='board -->

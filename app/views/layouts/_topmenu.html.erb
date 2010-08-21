@@ -1,0 +1,22 @@
+<div class='leftbar topbar'>
+  <%= main_menu %>
+  <%= new_menu if logged_in? %>
+  <%= search_menu %>
+  <%= games_menu %>
+  <%= yield :top_menu %>
+  <%= help_menu %>
+  <%= admin_menu if logged_in? and current_user.has_role?('administrator') %>
+</div>
+
+<div class='rightbar topbar with_border'>
+  <div class='menu_wrapper'>
+<% if logged_in? %>
+  <%= my_menu %>
+  <%= link_to 'Sign Out', logout_path, :class => 'menu_item' %>
+<% else %>
+  <%= link_to 'Sign In', login_path, :class => 'menu_item' %>
+  <%= link_to 'Sign Up', new_user_path, :class => 'menu_item' %>
+<% end %>
+</div><!-- div class='menu_wrapper' -->
+&nbsp;<!-- placeholder to hold the border open -->
+</div><!-- div class='rightbar topbar with_border' -->

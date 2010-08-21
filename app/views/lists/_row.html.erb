@@ -1,0 +1,32 @@
+<%#
+	classes = ['row']
+	classes.push('otheruser') if list.user_id != current_user.id
+	classes.push('public') if list.public
+-%>
+<%# content_tag_for(:div, list, :class => classes.join(' ') ) do -%>
+<% content_tag_for(:div, list, :class => classes_for_list(list) ) do -%>
+ <div class='title'>
+  <span class='value'><%= link_to h(list.title), list -%></span>
+ </div>
+ <div class='manage'><%= manage_links_for( list ) -%></div>
+ <div class='user'>
+  <span class='label'>Owner:</span>
+  <span class='value'>
+		<%= filter_link_to(h(list.user.login),params.dup,{:user => list.user.login}) %>
+	</span>
+ </div>
+ <div class='hide'>
+  <span class='label'><%= (list.hide)?"Hidden":"Visible" -%></span>
+ </div>
+ <div class='public'>
+  <span class='label'><%= (list.public)?"PUBLIC":"Private" -%></span>
+ </div>
+ <div class='items_counts'>
+  <span class='label'>Items(c/i/t):</span>
+  <span class='value'><%= "#{list.complete_items_count}/#{list.incomplete_items_count}/#{list.items_count}" -%></span>
+ </div>
+ <div class='tags'>
+  <span class='label'>Tags:</span>
+  <span class='value'><%= list.tags.map{|t| filter_link_to(h(t.name),params.dup,{:tags => t.name}) }.join(', ') %></span>
+ </div>
+<% end -%><!-- div class='note -->

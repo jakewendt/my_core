@@ -1,0 +1,24 @@
+<h1>Listing Tic Tac Toes</h1>
+
+<table>
+  <tr>
+    <th>Player 1</th>
+    <th>Player 2</th>
+    <th>Turn</th>
+    <th>Winner</th>
+  </tr>
+
+<% @tic_tac_toes.each do |tic_tac_toe| %>
+  <tr>
+    <td><%=h tic_tac_toe.player_1.login %></td>
+    <td><%=h tic_tac_toe.player_2.login %></td>
+    <td><%= ( tic_tac_toe.still_playing? ) ? h(tic_tac_toe.turn.login) : '&nbsp;' %></td>
+    <td><%= ( tic_tac_toe.won? ) ? h(tic_tac_toe.winner.login) : '&nbsp;' %></td>
+    <td><%= ( tic_tac_toe.still_playing? ) ? link_to( 'Play', tic_tac_toe ) : '&nbsp;' %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New game of TicTacToe', new_tic_tac_toe_path %>

@@ -1,0 +1,10 @@
+<% form_for(new, 
+	:url => board_magnets_path(@board), 
+	:method => :post) do |f| %>
+<p>Create new magnet:</p>
+<p>
+<%= f.text_field :word, :size => 50 -%>
+<span id='posting_magnet'><%= image_tag 'spinner.gif' -%> Sending</span>
+</p> 
+<% end %>
+<script type="text/javascript">$("#magnet_focus").focus()</script>

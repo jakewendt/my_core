@@ -1,0 +1,28 @@
+<%#
+	classes = ['row']
+	classes.push('otheruser') if resume.user_id != current_user.id
+	classes.push('public') if resume.public
+-%>
+<%# content_tag_for(:div, resume, :class => classes.join(' ') ) do -%>
+<% content_tag_for(:div, resume, :class => classes_for_resume(resume) ) do -%>
+ <div class='title'>
+  <span class='value'><%= link_to h(resume.title), resume -%></span>
+ </div>
+ <div class='manage'><%= manage_links_for( resume ) -%></div>
+ <div class='user'>
+  <span class='label'>Owner:</span>
+  <span class='value'>
+		<%= filter_link_to(h(resume.user.login),params.dup,{:user => resume.user.login}) %>
+	</span>
+ </div>
+ <div class='hide'>
+  <span class='label'><%= (resume.hide)?"Hidden":"Visible" -%></span>
+ </div>
+ <div class='public'>
+  <span class='label'><%= (resume.public)?"PUBLIC":"Private" -%></span>
+ </div>
+ <div class='tags'>
+  <span class='label'>Tags:</span>
+  <span class='value'><%= resume.tags.map{|t| filter_link_to(h(t.name),params.dup,{:tags => t.name}) }.join(', ') %></span>
+ </div>
+<% end -%><!-- div class='resume -->

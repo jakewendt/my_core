@@ -1,0 +1,28 @@
+<% content_for :head, javascript_include_tag( 'board' ) %>
+<%= error_messages_for :board %>
+<% form_for(@board) do |f| %>
+
+  <div><b>Title</b> <%= f.text_field :title, :size => 50 %></div>
+	<p>
+    <%= f.check_box :public %>
+    <b><%= label 'board', 'public', 'Allow Public to View?' %></b>
+    <%= f.submit "Update and View" %>&nbsp;
+    <%= link_to 'Cancel and View', @board, :class => 'button' %>
+  </p>
+
+  <p>Magnets</p>
+  <div id="magnets">
+    <%= render :partial => 'magnets/edit', :collection => @board.magnets, :as => :magnet %>
+  </div><%# end div id="magnets" -%>
+
+<%# why do I check if this is editable? -%>
+<%# if editable?(@board) -%>
+  <div><%= render :partial => 'magnets/new', :object => Magnet.new %></div>
+<%# end -%>
+
+  <p><b>Tags (comma separated)</b></p>
+  <%= f.text_field :tag_names, :class => 'text' %>
+
+<% end %>
+
+<p><small>Firebug's Network Monitoring tool can cause some problems with this.</small></p>

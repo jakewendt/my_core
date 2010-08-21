@@ -1,0 +1,27 @@
+<% content_tag_for(:table, affiliation) do %> 
+<% fields_for "resume[affiliations_attributes][]", affiliation do |f| -%>
+  <tr><td>Start Date:</td><td>
+      <%= f.hidden_field :id %>
+      <%= f.text_field :start_date_string, :class => 'text' %>
+    </td>
+        
+    <td>End Date:</td>
+    <td>
+      <%= f.text_field :end_date_string, :class => 'text' %>
+    </td>
+    <td>
+      <%= f.check_box :_delete %>
+      <%= f.label :_delete, 'Destroy' %>
+    </td>
+  </tr>
+      
+  <tr>
+    <td colspan='2'>
+      <%= f.text_field :relationship, :class => 'text' %>
+    </td>
+    <td colspan='3'>
+      <%= f.text_field :organization, :class => 'text' %>
+    </td>
+  </tr>
+<% end -%><%# end fields_for -%>
+<% end %><%# end content_tag_for(:table, a_form.object) do -%>

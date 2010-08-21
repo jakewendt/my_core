@@ -1,0 +1,10 @@
+<% form_for :note, 
+	:url => note_path(@note), 
+	:html => { :class => 'confirm_destroy', :method => :delete } do |f| %>
+	<h2>Are you sure you want to destroy this note?</h2>
+	<p><%= @note.title -%></p>
+	<p>
+		<%= f.submit "Destroy" %>
+		or <%= link_to "Cancel", notes_path, :class => 'button' %>
+	</p>
+<% end %>

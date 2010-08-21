@@ -1,0 +1,53 @@
+jQuery(function(){
+
+	add_confirm_destroy_listeners();
+
+});
+
+function add_confirm_destroy_listeners(id) {
+	id = (typeof(id) == 'undefined')?'':id
+	$(id+' a.confirm_destroy').click(function(){
+		/*
+			from http://railscasts.com/episodes/77-destroy-without-javascript
+			called from CSS menu
+		*/
+		destroy_url = this.href.replace("/confirm_destroy","")
+		message = (this.title.blank())?destroy_url:this.title
+		if (confirm("Delete\n'"+message+"'\nAre you sure?")) {
+			var f = document.createElement('form');
+			f.style.display = 'none';
+			this.parentNode.appendChild(f);
+			f.method = 'POST';
+			f.action = destroy_url;
+			var m = document.createElement('input');
+			m.setAttribute('type', 'hidden');
+			m.setAttribute('name', '_method');
+			m.setAttribute('value', 'delete');
+			f.appendChild(m);
+			var t = document.createElement('input');
+			t.setAttribute('type', 'hidden');
+			t.setAttribute('name', 'authenticity_token');
+			t.setAttribute('value', "<%=if (protect_against_forgery?);form_authenticity_token();end-%>");
+			f.appendChild(t); 
+			f.submit();
+		}
+		return false;
+	});
+
+	$(id+' a.ajax_confirm_destroy').click(function(){
+		/*
+			from http://railscasts.com/episodes/77-destroy-without-javascript
+			called from table/list views
+		*/
+		destroy_url = this.href.replace("/confirm_destroy","")
+		message = (this.title.blank())?destroy_url:this.title
+		if (confirm("Delete\n'"+message+"'\nAre you sure?")) {
+			jQuery.post(destroy_url, {
+				authenticity_token: "<%=if (protect_against_forgery?);form_authenticity_token();end-%>",
+				_method:'delete'
+			}, function(){}, 'script'); 
+		}
+		return false;
+	});
+
+}

@@ -1,0 +1,9 @@
+<%= error_messages_for :page %>
+
+<% form_for(@page) do |f| %>
+  <%= render :partial => 'form', :locals => {:f => f} %>
+  <p>
+<%= f.submit "Update" %>&nbsp;
+<%= link_to "Cancel and View", @page, :class => 'button' %>
+</p>
+<% end %>

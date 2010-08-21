@@ -1,0 +1,1 @@
+page.insert_html :bottom, "affiliations", :partial => 'edit', :locals => { :affiliation => @affiliation }

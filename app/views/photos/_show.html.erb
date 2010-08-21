@@ -1,0 +1,10 @@
+<% content_tag_for(:div, photo ) do %>
+  <p>
+<% if photo.file.blank? %>
+  No photo provided!
+<% else %>
+  <%= image_tag url_for_file_column(photo, "file") -%>
+<% end %>
+  </p>
+  <p><b>Caption:</b> <%= photo.caption -%></p>
+<% end %>

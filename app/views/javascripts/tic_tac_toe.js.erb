@@ -1,0 +1,35 @@
+user_id = <%= current_user.id %>;
+
+function add_square_listeners() {
+	jQuery('.tic_tac_toe .square').unbind();
+	if( user_id == turn_user_id ){
+		jQuery('.tic_tac_toe .square.open').hover(
+			function() { $(this).css('background-color','yellow'); $(this).addClass(player_class); },
+			function() { $(this).css('background-color','transparent'); $(this).removeClass(player_class); }
+		);
+		jQuery('.tic_tac_toe .square.open').click(function() {
+			ttt_id = $('.tic_tac_toe').attr('id').split('_').pop();
+			sqr_id = $(this).attr('id').split('_').pop();
+			jQuery.ajax({
+				type: "POST",
+				url: "/tic_tac_toes/"+ttt_id,
+				data: {
+					_method:'put',
+					square:sqr_id,
+					/* Need to check because testing turns forgery protection off */
+					authenticity_token:"<%=if (protect_against_forgery?);form_authenticity_token();end-%>"
+				},
+				dataType: "script"
+			});
+		});
+	}
+}
+
+function reload_board() {
+	ttt_id = $('.tic_tac_toe').attr('id').split('_').pop();
+	jQuery.ajax({
+		type: "GET",
+		url: "/tic_tac_toes/"+ttt_id,
+		dataType: "script"
+	});
+}

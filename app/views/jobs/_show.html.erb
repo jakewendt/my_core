@@ -1,0 +1,10 @@
+<% content_tag_for(:div, job, :class => 'resume_item') do %>
+ <%=sanitize(textilize(
+		"<span class='title'>" << job.title << "</span>" <<
+		"<span class='dates'>(&nbsp;" << job.start_date.to_s(:month_year) <<
+		"&nbsp;-&nbsp;" << job.end_date_to_s << "&nbsp;)</span>")) %>
+ <%= sanitize(textilize(
+	"<span class='company'>" << job.company << "</span>" <<
+	"<span class='location'>" << job.location << "</span>")) %>
+ <div class='description'><%= sanitize(textilize(job.description)) %></div>
+<% end %>

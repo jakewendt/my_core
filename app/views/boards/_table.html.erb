@@ -1,0 +1,7 @@
+<% if @boards && @boards.length > 0 %>
+<div id='boards' class='table'>
+<%= render :partial => 'boards/row', :collection => @boards, :as => :board %>
+</div><!-- div id='boards' -->
+<% else %>
+<p>No Boards Found!</p>
+<% end %>

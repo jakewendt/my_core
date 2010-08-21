@@ -1,0 +1,30 @@
+<% content_for :top_menu, lists_menu %>
+<%= controlframe "Lists", 'note_accept.png' %>
+<%= error_messages_for :list %>
+
+<% form_for(@list) do |f| %>
+  <div><b>Title</b> <%= f.text_field :title, :size => 50 %></div>
+
+  <p>
+    <%= f.check_box :public %>
+    <b><%= label 'list', 'public', 'Allow Public to View?' %></b>
+    <%= f.check_box :hide %>
+    <b><%= label 'list', 'hide', "Hide in 'MyStuff'?" %></b>
+    <%= f.submit "Update and View" %>&nbsp;
+    <%= link_to 'Cancel and View', list_path(@list), :class => 'button' %>
+  </p>
+
+  <ul id="items" class='items'>
+    <li style='display:none'>Place holder to make valid html when no items</li>
+    <%= render :partial => 'items/edit', :collection => @list.items.incomplete, :as => :item %>
+  </ul>
+
+  <p><b>Description</b></p>
+  <%= f.text_area :description %>
+
+  <p><b>Tags (comma separated)</b></p>
+  <%= f.text_field :tag_names, :class => 'text' %>
+
+<% end %><%# end form -%>
+
+<p><small>Firebug's Network Monitoring tool can cause some problems with this.</small></p>

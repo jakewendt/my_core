@@ -1,0 +1,17 @@
+<%= "\nBlogs by #{current_user.login}\n\n" %>
+
+<%= "\nDownloaded on #{Time.now.to_s(:basic)}\n\n" %>
+
+<%= "\n\n----------------------------------------------------------------------\n\n" %>
+
+
+<%= "\nTable of Contents\n\n" %>
+<% @blogs.each do |blog| -%>
+	<%= " * #{blog.title}" %>
+<% end -%>
+<%= "\n\n----------------------------------------------------------------------\n\n" %>
+
+<%= render :partial => 'blogs/show',
+	:collection => @blogs,
+	:as => :blog
+-%>

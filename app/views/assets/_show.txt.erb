@@ -1,0 +1,15 @@
+<%= 
+  "Title: #{asset.title}\n" <<
+  "Description: #{asset.description}\n" <<
+  "Model: #{asset.model}".ljust(30) <<
+  "Serial: #{asset.serial}\n" <<
+  "Cost: #{number_to_currency(asset.cost)}".ljust(30) <<
+  "Value: #{number_to_currency(asset.value)}".ljust(30) <<
+  "Price: #{number_to_currency(asset.price)}\n" <<
+  "Acquired on: #{asset.acquired_on}".ljust(30) <<
+  "Used on: #{asset.used_on}".ljust(30) <<
+  "Sold on: #{asset.sold_on}\n" <<
+  "Creators(s): #{asset.creator_names}\n" <<
+  "Category(s): #{asset.category_names}\n" <<
+  "Location(s): #{asset.location_names}\n"
+%>

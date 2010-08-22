@@ -1,0 +1,11 @@
+#status {
+	background-image: url('/images/spinner.gif');
+	background-repeat: no-repeat;
+	background-color: #EEE;
+	background-position: 15px center;
+	border: 2px solid #BBB;
+  padding: 0.7em;
+  text-align: center;
+  font-weight: bold;
+  font-size: 12pt;
+}

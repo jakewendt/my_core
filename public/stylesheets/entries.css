@@ -1,0 +1,5 @@
+@import url("blogs.css");
+
+textarea#entry_body {
+  height: 25em;
+}

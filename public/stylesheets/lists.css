@@ -1,0 +1,79 @@
+ul.items li { list-style: none; }
+
+form.edit_item {
+  display: inline;
+}
+
+ul.items li img.dragger {
+  display: none;
+}
+ul#items.reordering li img.dragger {
+  display: inline;
+}
+
+span#posting_item {
+	display: none;
+	margin-left: 1em;
+}
+
+/*
+form.edit_list div.public {
+	float:left;
+	clear:left;
+	padding-right: 2em;
+	line-height: 35px;
+	vertical-align: middle;
+}
+form.edit_list div.hide {
+	float:left;
+	padding-right: 2em;
+	line-height: 35px;
+	vertical-align: middle;
+}
+form.edit_list div.update {
+	
+}
+*/
+
+
+
+
+/*
+		index
+*/
+
+div.list div span.label {
+	font-weight: bold;
+}
+
+div.list div.title {
+	clear:left;
+	float: left;
+}
+div.list div.title a {
+	font-size: 12pt;
+	font-weight: bold;
+}
+div.list div.manage {
+	text-align:right;
+}
+
+div.list div.user {
+	clear:left;
+	float: left;
+	width: 13em;
+}
+div.list div.hide {
+	float: left;
+	width: 8em;
+}
+div.list div.public {
+	float: left;
+	width: 8em;
+}
+div.list div.items_counts {
+	float: left;
+	width: 15em;
+}
+div.list div.tags {
+}

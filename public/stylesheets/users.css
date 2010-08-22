@@ -1,0 +1,24 @@
+@import url('forums.css');
+
+form#forgot_password, 
+form#change_password, 
+form#reset_password, 
+form#edit_user, 
+form#new_session, 
+form#new_user {
+  margin: 0 auto;
+  width: 80ex;
+}
+
+table#user_profile { }
+table#user_profile th {
+  padding: 0.3em;
+}
+table#user_profile > tbody > tr > th,
+table#user_profile > tbody > tr > td > table > tbody > tr > th:first-child {
+  text-align: left;
+}
+table#user_profile th a {
+  color: white;
+  font-weight: normal;
+}

@@ -1,0 +1,32 @@
+/* top right bottom left */
+div.filters {
+	float:left;
+	margin-bottom: 1ex;
+}
+div.filters div.filter {
+	float:left;
+}
+div.filter span.name {
+	border: 1px solid gray;
+	background-color: #ECC;
+	color: #111;
+	padding: 0.5ex;
+}
+div.filter a.clear_filter {
+	position: relative;
+	top: -12px;
+	right: 8px;
+	float: right;
+}
+div.filter a.negate_filter {
+	position: relative;
+	top: -12px;
+	left: 8px;
+	float: left;
+}
+div.filter a.posate_filter {
+	position: relative;
+	top: -12px;
+	left: 8px;
+	float: left;
+}

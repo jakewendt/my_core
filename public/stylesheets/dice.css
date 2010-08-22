@@ -1,0 +1,41 @@
+div#dice_board {
+	height: 300px;
+	width: 700px;
+	margin: 0 auto;
+}
+div.die {
+	width: 100px;
+	height: 150px;
+	margin: 20px;
+	float:left;
+}
+div.die span.click {
+	display:block;
+}
+img.die {
+	display: block;
+	width: 100px;
+	height: 100px;
+}
+
+span.keep {
+	display:none;
+	text-align:center;
+	font-weight:bold;
+	padding:1ex;
+	font-size:16pt;
+	background-color:#DDD;
+}
+span.click {
+	text-align:center;
+	padding:0.7ex;
+	font-size:12pt;
+	background-color:#EEE;
+	color:#888;
+}
+div.die.frozen span.keep {
+	display:block;
+}
+div.die.frozen span.click {
+	display:none;
+}

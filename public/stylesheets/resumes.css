@@ -1,0 +1,90 @@
+.section_header {
+  background-color: #006;
+}
+.section_header {
+  color: white;
+  padding: 0.2em;
+  padding-left: 1em;
+}
+.affiliation,
+.publication,
+.school,
+.job {
+  padding: 0.1em 0.9em;
+  border: 1px solid #AAF;
+	border-top: 0;
+}
+/*
+	because I switched to using fields for, the first child is actually and input
+	moving the first actual table.job the second child.  Irritating, but requires nth-child(2).
+	Problem with this is that in edit it is the second, but in show it is first.
+	Ahh! Just discovered nth-of-type which is exactly what I was looking for.
+#jobs .job:nth-child(2), #publications .publication:nth-child(2), #schools .school:nth-child(2) {
+*/
+.affiliation:nth-of-type(1), .job:nth-of-type(1), .publication:nth-of-type(1), .school:nth-of-type(1) {
+	border-top: 1px solid #AAF;
+}
+
+
+
+
+/*
+		show
+*/
+.job .title    { font-weight: bold; }
+.job .company  { font-weight: bold; }
+.job .dates    { margin-left: 1em; }
+.job .location { margin-left: 1em; }
+
+.school .name  { font-weight: bold; }
+.school .dates { margin-left: 1em; }
+
+.affiliation .relationship {
+	clear:left;
+	float: left;
+	width: 25%;
+}
+.affiliation .organization {
+	float: left;
+	width: 25%;
+}
+
+
+
+
+/*
+		index
+*/
+div.resume div span.label {
+	font-weight: bold;
+}
+
+div.resume div.title {
+	clear:left;
+	float: left;
+}
+div.resume div.title a {
+	font-size: 12pt;
+	font-weight: bold;
+}
+div.resume div.manage {
+	text-align:right;
+}
+
+
+div.resume div.user {
+	clear:left;
+	float: left;
+	width: 13em;
+}
+div.resume div.hide {
+	float: left;
+	width: 8em;
+}
+div.resume div.public {
+	float: left;
+	width: 8em;
+}
+div.resume div.tags {
+}
+

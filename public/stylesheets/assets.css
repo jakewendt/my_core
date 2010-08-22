@@ -1,0 +1,114 @@
+/*
+	action:edit
+*/
+div.field {
+	padding:2px;
+	float: left;
+	width: 24%;
+}
+form.edit_asset input[type='text'] {
+	width: 95%;
+}
+div#title,
+div#description,
+div#model,
+div#cost,
+div#acquired_on,
+p#button_row {
+	clear:left;
+}
+
+div#description textarea {
+	height: 15em;
+}
+
+
+
+/*
+	action:index
+*/
+div.asset div.title {
+	clear:left;
+	float: left;
+}
+div.asset div.title a {
+	font-size: 12pt;
+	font-weight: bold;
+}
+div.asset div.manage {
+	text-align:right;
+}
+
+div.asset div.categories {
+	clear:left;
+	float: left;
+	width: 35%;
+}
+div.asset div.creators {
+	float: left;
+	width: 35%;
+}
+div.asset div.locations {
+}
+
+div.asset div.model {
+	clear:left;
+	float: left;
+	width: 35%;
+}
+div.asset div.serial {
+	float: left;
+	width: 35%;
+}
+div.asset div.for_sale {
+}
+
+div.asset div.cost {
+	clear:left;
+	float: left;
+	width: 35%;
+}
+div.asset div.value {
+	float: left;
+	width: 35%;
+}
+div.asset div.price {
+}
+
+div.asset div.acquired {
+	clear:left;
+	float: left;
+	width: 35%;
+}
+div.asset div.used {
+	float: left;
+	width: 35%;
+}
+div.asset div.sold {
+}
+
+div.asset div.description {
+	clear:left;
+}
+
+div.asset:hover div.details {
+	display:block;
+}
+div.asset div.details {
+	display:none;
+}
+
+/* even == 2n */
+/* odd  == 2n+1 */
+div.row:nth-child(odd).unused  { background-color: #CFC; }
+div.row:nth-child(even).unused { background-color: #DFD; }
+div.row:nth-child(odd).sold  { background-color: #FCC; }
+div.row:nth-child(even).sold { background-color: #FDD; }
+div.row:nth-child(odd).want  { background-color: #CCF; }
+div.row:nth-child(even).want { background-color: #DDF; }
+div.row:nth-child(odd).for_sale  { background-color: #FFB; }
+div.row:nth-child(even).for_sale { background-color: #FFD; }
+div.row:nth-child(odd).borrowed  { background-color: #FBF; }
+div.row:nth-child(even).borrowed { background-color: #FCF; }
+
+

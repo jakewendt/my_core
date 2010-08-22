@@ -1,0 +1,283 @@
+@import url("filters.css");
+@import url("menus.css");
+body{
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+div.page {
+  font-family: Georgia, Arial;
+  font-size: 14pt;
+}
+/*
+select, textarea, input, p, a, li, th, td {
+*/
+* {
+  font-family: Georgia, Arial;
+  font-size: 12pt;
+}
+#container {
+/* top right bottom left */
+  margin: 0px 50px;
+	background-color: white;
+  padding: 1px;
+}
+
+#content {
+	padding: 15px;
+	padding-top: 0;
+}
+.flash {
+  padding: 0.7em;
+  text-align: center;
+  font-weight: bold;
+  font-size: 12pt;
+}
+.flash#error {
+  border: 2px solid #F44;
+  background-color: #FCC;
+}
+.flash#notice {
+  border: 2px solid #4F4;
+  background-color: #CFC;
+}
+.flash#noscript {
+  border: 2px solid #FF8C00;
+  background-color: #FFC5AF;
+/*
+  background-color: #FFA500;
+*/
+}
+a {
+  color: black;
+  padding: 0;
+  text-decoration: none;
+}
+input[type='submit'],
+#content a {
+	font-weight: bold;
+}
+h1 > a {
+  font-size: 28pt;
+}
+img#logo {
+  height: 5.5em;
+  border: 0;
+}
+input.text {
+  width: 100%;
+}
+textarea {
+  height: 10em;
+  width: 100%;
+}
+.footnote {
+  font-size: 10pt;
+}
+a > img {
+  border: 0;
+  vertical-align: middle;
+}
+
+table   { width: 100%; background-color: #fff; }
+th      { color: #fff; }
+table   { border: 1px solid #003; }
+th      { background-color: #003; }
+/*
+.odd  { background-color: #eee; }
+.even { background-color: #ddd; }
+*/
+
+td      { vertical-align: top; padding: 0.2em;}
+th.manage,
+td.manage { width: 8em; text-align: center; }
+th.count,
+td.count  { width: 5em; text-align: center; }
+th.user,
+td.user,
+td.level,
+td.date  { 
+	width: 8em; 
+	text-align: center;
+}
+td.drag  { vertical-align: middle; text-align: center; }
+/*
+.center  { text-align: center; }
+*/
+
+p.search {
+	clear:both;
+}
+
+.description {
+	text-align:justify;
+}
+
+input[type='submit'].link {
+	background-color: transparent;
+	border: 0;
+	padding: 0;
+	display: inline;
+}
+input[type='submit'],
+.button,
+.button:visited {
+  background-color: silver;
+  color: black;
+  border-width: 2px;
+	border-style: outset;
+	border-top-color: black;
+	border-bottom-color: black;
+	border-left-color: gray;
+	border-right-color: gray;
+  text-align: center;
+  vertical-align: middle;
+}
+input[type='submit']:hover,
+.button:hover {
+  background-color: black;
+  color: white;
+}
+/* a tags and input tags require a tiny difference to make them the exact same height */
+a.button             { padding: 0.36em 0.6em; }
+input[type='submit'] { padding: 0.3em  0.6em; }
+
+
+/* used to hide the real submit buttons */
+.hidden { display: none; }
+
+
+/* using 64x64 images */
+div.controlframe {
+  height: 64px;
+	margin-bottom: 0.5ex;
+	clear: both;
+}
+div.controlframe img {
+  float: left;
+}
+div.controlframe div.bar {
+  margin-left: 70px;
+  top: 15px;
+  padding: 0;
+  padding-left: 1em;
+  line-height: 34px;
+}
+div.controlframe div.bar {
+	font-size: 12pt;
+}
+
+p.bar {
+  padding: 0.5em;
+}
+/*
+	I don't remember why exactly I had this, but everything seems to work without it.
+	Ehh.  By making it relative, one can use the 'top' attribute!
+*/
+.bar {
+  position: relative;
+}
+.control {
+  background-color: #EEE;
+  border: 1px solid silver;
+}
+.bar .manage {
+  position: absolute;
+  right: 0;
+  margin-right: 2em;
+}
+
+
+
+
+div#background { min-width: 800px; }
+/* 800 - 2*50 margin - 2*1 padding */
+div#container { min-width: 698px; }
+/* 800 - 2*50 margin - 2*15 padding */
+div#content { min-width: 670px; }
+div#background {
+	width: 100%;
+	height: 100%;
+	position:fixed;
+	top: 0;
+	z-index: -1;
+}
+div#background div.margin {
+	position:absolute;
+	height: 100%;
+	width: 50px;
+	background-repeat: repeat-y;
+	background-color: #CCF;
+}
+div#left_margin {
+	left: 0;
+	background-position: top right;
+	background-image: url('/images/rgrad.png');
+}
+div#right_margin {
+	background-position: top left;
+	background-image: url('/images/lgrad.png');
+	right: 0;
+}
+
+
+code {
+	background-color: #EEE;
+	border: 1px solid silver;
+	font-size: 10pt;
+	padding: 1ex;
+	display: block;
+	margin: 1ex;
+	white-space: pre-wrap;
+}
+
+
+div.table {
+	clear: left;
+	margin-bottom: 1ex;
+}
+div.row {
+	border: 1px solid silver;
+	border-top: 0;
+	padding: 6px;
+	clear: left;
+	overflow: auto;
+}
+div.row:nth-child(1) {
+	border-top: 1px solid silver;
+}
+div.row:nth-child(2n)   { background-color: #EEE; }
+div.row:nth-child(2n+1) { background-color: #DDD; }
+div.row:nth-child(2n).public   { background-color: #FFD; }
+div.row:nth-child(2n+1).public { background-color: #FFB; }
+div.row:nth-child(2n).otheruser   { background-color: #FCF; }
+div.row:nth-child(2n+1).otheruser { background-color: #FBF; }
+
+div#filter_and_sort_select_tags {
+	display:inline;
+	float: right;
+}
+div#new_filters {
+	display:inline;
+}
+div#sort_select_tags {
+	display:inline;
+	float: right;
+	padding-right: 1em;
+}
+div#sort_select_tags select {
+	margin-left: 1ex;
+}
+
+div.pagination {
+	text-align: center;
+}
+
+
+
+table#legend { border: 0; }
+table#legend td.color { width: 50px; }
+table#legend td.color div.row { padding: 0px; }
+table#legend td.value { vertical-align: middle; }
+

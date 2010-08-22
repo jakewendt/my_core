@@ -1,0 +1,55 @@
+p#players {
+	text-align:center;
+}
+p#players span.player {
+	font-size: 16pt;
+	padding: 3px;
+}
+span.player.turn {
+	background-color: #8F8;
+}
+span.player.winner {
+	background-color: #F88;
+}
+div.tic_tac_toe {
+	width: 462px;
+	margin: 0 auto;
+}
+div.square {
+	width: 150px;
+	height: 150px;
+	border: 3px solid #444;
+	float:left;
+}
+
+
+/* FYI: n starts at 1 */
+div.square:nth-of-type(3n+1) {
+	clear: left;
+	border-left: 0; 
+}
+div.square:nth-of-type(3n) {
+	border-right: 0; 
+}
+div.square:nth-of-type(1),
+div.square:nth-of-type(2),
+div.square:nth-of-type(3) {
+	border-top: 0; 
+}
+div.square:nth-of-type(7),
+div.square:nth-of-type(8),
+div.square:nth-of-type(9) {
+	border-bottom: 0; 
+}
+/*
+div.square.open:hover {
+	background-color: yellow;
+}
+*/
+
+div.square.player_1 {
+	background-image: url('/images/x.png');
+}
+div.square.player_2 {
+	background-image: url('/images/o.png');
+}

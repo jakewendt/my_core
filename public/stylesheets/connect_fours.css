@@ -1,0 +1,57 @@
+p#players {
+	text-align:center;
+}
+p#players span.player {
+	font-size: 16pt;
+	padding: 10px;
+}
+span.player.turn {
+	border: 3px solid black;
+}
+span.player.winner {
+	text-decoration: blink;	/* doesn't work in Safari */
+	font-weight: bold;
+}
+div.connect_four {
+	width: 706px;				/* 7 columns, 100px each + 3px left border + 3px right border */
+	margin: 0 auto;
+}
+/*
+div.connect_four div.board {
+	background-color: #999;
+	width:706px;
+	height: 606px;
+}
+*/
+div.column {
+	float:left;
+	border-top: 3px solid black;
+	border-bottom: 3px solid black;
+	margin:0;
+}
+div.column:first-of-type {
+	border-left: 3px solid black;
+}
+div.column:last-of-type {
+	border-right: 3px solid black;
+}
+div.square {
+	width: 100px;
+	height: 100px;
+	background-image: url('/images/connect_four.png');
+	background-position: center;
+	margin:0;
+}
+
+.player_1 {		/* square and player login */
+	background-color: #F44;
+}
+.player_2 {		/* square and player login */
+	background-color: #FF0;
+}
+.square.winner.player_1 {		/* square and player login */
+	background-color: #822;
+}
+.square.winner.player_2 {		/* square and player login */
+	background-color: #880;
+}

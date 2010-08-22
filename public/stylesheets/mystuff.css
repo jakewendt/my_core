@@ -1,0 +1,30 @@
+@import url('boards.css');
+@import url('blogs.css');
+@import url('lists.css');
+@import url('notes.css');
+@import url('resumes.css');
+@import url('trips.css');
+
+form#forgot_password, 
+form#change_password, 
+form#reset_password, 
+form#edit_user, 
+form#new_session, 
+form#new_user {
+  margin: 0 auto;
+  width: 50ex;
+}
+
+div#mystuff {
+	clear:both;
+	border: 1px solid #003;
+	padding: 0.4ex;
+}
+div#mystuff div.section {
+	clear:both;
+	background-color: #003;
+	padding: 0.7ex;
+}
+div#mystuff div.section * {
+	color: white;
+}

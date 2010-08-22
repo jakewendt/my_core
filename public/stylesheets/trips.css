@@ -1,0 +1,65 @@
+div.stop {
+  border-top: 1px solid silver;
+  padding: 1em;
+}
+div.minimap_canvas {
+  margin: 0 auto;
+  height: 40ex;
+  width:  60ex;
+}
+img.stopimage {
+  max-width: 100%;
+}
+table.stop_position,
+table.stop {
+  border: 0;
+}
+td.dragger {
+  vertical-align: middle;
+  text-align: center;
+  background-color: silver;
+  border: 1px solid gray;
+}
+
+div#tripmap {
+  border: 1px solid black;
+  height: 90ex;
+}
+
+div.trip div span.label {
+	font-weight: bold;
+}
+
+div.trip div.title {
+	clear:left;
+	float: left;
+}
+div.trip div.title a {
+	font-size: 12pt;
+	font-weight: bold;
+}
+div.trip div.manage {
+	text-align:right;
+}
+
+
+div.trip div.user {
+	clear:left;
+	float: left;
+	width: 13em;
+}
+div.trip div.hide {
+	float: left;
+	width: 8em;
+}
+div.trip div.public {
+	float: left;
+	width: 8em;
+}
+div.trip div.stops_count {
+	float: left;
+	width: 10em;
+}
+div.trip div.tags {
+}
+

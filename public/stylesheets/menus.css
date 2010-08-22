@@ -1,0 +1,67 @@
+.topbar {
+	font-size: 12pt;
+	padding:5px;
+	padding-left:1px;
+	margin-bottom: 10px;
+}
+.leftbar     { float:left; margin-left: 1px; margin-top: 1px; }
+.rightbar    { text-align: right; }
+.with_border { border: 1px solid gray; }
+.menu_item { 
+	padding: 0 5px;
+	border-right: 1px solid gray; 
+	float:left;
+}
+.menu_item:last-child   { border: 0; }
+.rightbar .menu_wrapper { float:right; }
+.rightbar a:last-child  { border: 0; }
+
+hr { margin: 0 5px; }
+
+.sub_menu {
+/*
+	Adding a margin makes it look better, but it produces a gap in the hover function
+	margin-top:4px;
+*/
+	padding-top:9px;
+	text-align:left;
+	position:absolute;
+	z-index: 100;	/* needed to keep it above a google map */
+	margin-left: -6px;
+	display:none;
+	background-color: white;
+	border-left: 1px solid gray;
+	border-right: 1px solid gray;
+	border-bottom: 1px solid gray;
+}
+.sub_menu form {
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+.sub_menu input[type='submit'].link {
+	width: 100%;
+	text-align: left;
+/*
+	padding: 2px;
+	On firefox, the submit button is indented a few px more than the a tags.
+	On Safari, it looks right.
+	If I make the padding smaller for firefox, it doesn't look right on Safari!!!!
+*/
+}
+.sub_menu input[type='submit'].link,
+.sub_menu a,
+.sub_menu span {
+	font-weight: normal;
+	padding: 5px;
+	display:block;
+}
+/*
+.sub_menu input[type='submit'].link,
+.sub_menu a,
+.sub_menu span,
+.sub_menu_item:last-child {
+	border-bottom: 0;
+}
+*/
+.menu_item:hover > .sub_menu { display:block; }

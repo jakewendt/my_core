@@ -1,0 +1,82 @@
+
+#note_body {
+	font-size: 14pt;
+}
+div#note_body {
+	border: 1px solid silver;
+	background-color: #eee;
+	padding: 0 10px;
+}
+pre#note_body {
+	border: 1px solid silver;
+	background-color: #eee;
+  white-space: pre-wrap;
+	padding: 10px;
+}
+textarea#note_body {
+  height: 25em;
+}
+
+
+
+div#note_body * {
+	font-size: 14pt;
+}
+
+
+div.note div span.label {
+	font-weight: bold;
+}
+
+div.note div.title {
+	clear:left;
+	float: left;
+}
+div.note div.title a {
+	font-size: 12pt;
+	font-weight: bold;
+}
+div.note div.manage {
+	text-align:right;
+}
+
+
+div.note div.user {
+	clear:left;
+	float: left;
+	width: 13em;
+}
+div.note div.hide {
+	float: left;
+	width: 8em;
+}
+div.note div.public {
+	float: left;
+	width: 8em;
+}
+div.note div.length {
+	float: left;
+	width: 10em;
+}
+div.note div.tags {
+}
+
+
+
+table.legend_table {
+	width: auto;
+	border: 0;
+	background-color: transparent;
+}
+/*
+	margin: 0 auto;
+	width:800px;
+*/
+/* Don't remember why I had this */
+/*
+*/
+div.flot {
+	display:none;
+	width: 100%;
+	height:400px;
+}

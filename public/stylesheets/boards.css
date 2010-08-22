@@ -1,0 +1,47 @@
+div.edit_magnet_div {
+  text-align: left;
+  padding: 1ex;
+}
+div.board div span.label {
+	font-weight: bold;
+}
+
+div.board div.title {
+	clear:left;
+	float: left;
+}
+div.board div.title a {
+	font-size: 12pt;
+	font-weight: bold;
+}
+div.board div.manage {
+	text-align:right;
+}
+
+
+div.board div.user {
+	clear:left;
+	float: left;
+	width: 13em;
+}
+div.board div.hide {
+	float: left;
+	width: 8em;
+}
+div.board div.public {
+	float: left;
+	width: 8em;
+}
+div.board div.magnets_count {
+	float: left;
+	width: 10em;
+}
+div.board div.tags {
+}
+
+
+span#posting_magnet {
+	display: none;
+	margin-left: 1em;
+}
+

@@ -1,0 +1,68 @@
+div.row:nth-child(even).failure { background-color: #FCC; }
+div.row:nth-child(odd).failure  { background-color: #FDD; }
+div.row:nth-child(even).success { background-color: #CFC; }
+div.row:nth-child(odd).success  { background-color: #DFD; }
+div.row:nth-child(even) { background-color: #CCF; }
+div.row:nth-child(odd)  { background-color: #DDF; }
+
+div.download div.name {
+	clear:left;
+	float: left;
+	width: 40%;
+}
+div.download div.manage {
+	text-align:right;
+}
+div.download div.manage form,
+div.download div.manage a {
+	margin-top: 1ex;
+	padding-right: 1ex;
+	padding-left: 1ex;
+	border-left: 1px solid black;
+}
+div.download div.manage a:first-child {
+	border: 0;
+}
+div.download div.manage form {
+	display:inline;
+}
+div.download div.manage input[type='submit'],
+div.download div.manage input {
+	border: 0;
+	margin: 0;
+	padding: 0;
+
+	/* lines up the button text with the link text.  Finally!!! */
+	vertical-align: baseline;
+}
+
+div.download div.url {
+	clear:left;
+	float: left;
+	width: 50%;
+}
+div.download div.status {
+}
+
+div.download div.created_at {
+	clear:left;
+	float: left;
+	width: 35%;
+}
+div.download div.started_at {
+	float: left;
+	width: 35%;
+}
+div.download div.completed_at {
+}
+
+
+form.edit_download {
+	display:inline;
+}
+/*
+div#show_download {
+	margin: 0 auto;
+}
+*/
+

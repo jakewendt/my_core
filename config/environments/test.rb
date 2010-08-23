@@ -34,3 +34,9 @@ config.gem "thoughtbot-factory_girl",
 config.gem "autotest-rails", :lib => 'autotest/rails'
 config.gem "ZenTest"
 
+
+	config.gem 'jakewendt-assert_this_and_that',
+		:lib => 'assert_this_and_that',
+		:source => 'http://rubygems.org'
+
+

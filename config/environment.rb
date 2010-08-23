@@ -7,7 +7,7 @@
 ENV['RAILS_ENV'] ||= 'production'
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.3.2' unless defined? RAILS_GEM_VERSION
+#RAILS_GEM_VERSION = '2.3.2' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -18,6 +18,25 @@ Rails::Initializer.run do |config|
 	config.action_view.sanitized_allowed_tags = 'a', 'br', 'img'
 
 	config.active_record.observers = :user_observer
+
+	config.gem 'jakewendt-stringify_date',
+		:lib    => 'stringify_date', 
+		:source => 'http://rubygems.org'
+
+	config.gem 'jakewendt-stringify_time',
+		:lib    => 'stringify_time', 
+		:source => 'http://rubygems.org'
+
+	config.gem 'jakewendt-ruby_extension',
+		:lib    => 'ruby_extension', 
+		:source => 'http://rubygems.org'
+
+	config.gem 'ryanb-acts-as-list', 
+		:lib => 'acts_as_list', 
+		:source => 'http://gems.github.com'
+
+	config.gem 'gravatar'
+
 
 	config.gem "prawn"
 #	config.gem "tidy"

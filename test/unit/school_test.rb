@@ -62,7 +62,8 @@ class SchoolTest < ActiveSupport::TestCase
 	end
 
 	test "should return month year on end_date_to_s with date" do
-		school = create_school(:end_date_string => "January 1, 2001")
+#		school = create_school(:end_date_string => "January 1, 2001")
+		school = create_school(:end_date_string => "January 1 2001")
 		assert_equal school.end_date_to_s, "Jan 2001"
 	end
 

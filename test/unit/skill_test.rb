@@ -48,7 +48,8 @@ class SkillTest < ActiveSupport::TestCase
 	end
 
 	test "should return month year on end_date_to_s with date" do
-		skill = create_skill(:end_date_string => "January 1, 2001")
+#		skill = create_skill(:end_date_string => "January 1, 2001")
+		skill = create_skill(:end_date_string => "January 1 2001")
 		assert_equal skill.end_date_to_s, "Jan 2001"
 	end
 

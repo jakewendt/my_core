@@ -1,0 +1,9 @@
+<%= controlframe "Edit Download: #{@download.url}", 'down_arrow.png' %>
+
+<%= error_messages_for :download %>
+
+<% form_for @download do |f| -%>
+ <p>Name:</p>
+ <%= f.text_field :name, :class => 'text' %>
+ <p><%= f.submit "Update" %>&nbsp;<%= link_to "Cancel and View", @download, :class => 'button' %></p>
+<% end %>

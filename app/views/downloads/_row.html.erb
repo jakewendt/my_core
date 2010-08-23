@@ -1,0 +1,23 @@
+<%#
+	classes = ['row']
+	classes.push(download.status) if download.status
+-%>
+<%# content_tag_for(:div, download, :class => classes.join(' ') ) do -%>
+<% content_tag_for(:div, download, :class => classes_for_download(download) ) do -%>
+<div class='name'><span class='label'>Name:</span><%=h download.name %></div>
+<div class='manage'>
+<%= link_to 'Edit', edit_download_path(download) %>
+<%= link_to 'Show', download %>
+<%= rebuild_download(download) %>
+<%= link_to 'Download', download_download_path(download) %>
+<%= link_to( 'Destroy', confirm_destroy_download_path(download), 
+	:title => download.name, :class => "ajax_confirm_destroy" ) %>
+</div>
+
+<div class='url'><span class='label'>URL:</span><%=h download.url %></div>
+<div class='status'><span class='label'>Status:</span><%=h download.status %></div>
+
+<div class='created_at'><span class='label'>Created At:</span><%=h download.created_at %></div>
+<div class='started_at'><span class='label'>Started At:</span><%=h download.started_at %></div>
+<div class='completed_at'><span class='label'>Completed At:</span><%=h download.completed_at %></div>
+<% end -%><!-- class='download' -->

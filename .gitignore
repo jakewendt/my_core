@@ -8,8 +8,6 @@ fed_ex.yml
 flickr.yml
 juggernaut.yml
 juggernaut_hosts.yml
-initializers/mail.rb
-initializers/session_store.rb
 s3.yml
 coverage
 coverage.data
@@ -63,3 +61,5 @@ test.pl
 ttt.rb
 
 config/initializers/mail.rb
+config/initializers/session_store.rb
+

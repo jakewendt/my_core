@@ -1,0 +1,36 @@
+<% content_for :top_menu, download_menu(@download) %>
+
+<div id='show_download'>
+<% if @download.created_at %>
+<p>PDF Build created at <%=h @download.created_at %>.</p>
+<% else %>
+<p>PDF Build NOT yet created.  Seems odd doesn't it?</p>
+<% end %>
+
+<% if @download.started_at %>
+<p>PDF Build initiated at <%=h @download.started_at %>.</p>
+<% else %>
+<p>PDF Build NOT yet started.</p>
+<% end %>
+
+<% if @download.completed_at %>
+<p>PDF Build completed at <%=h @download.completed_at %>.</p>
+<% else %>
+<p>PDF Build NOT yet completed.</p>
+<% end %>
+
+<p>
+  <b>Name:</b>
+  <%=h @download.name %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%=h @download.url %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @download.status %>
+</p>
+</div><!-- <div id='show_download'> -->

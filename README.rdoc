@@ -20,6 +20,12 @@
 
 == Installation
 
+ mail.rb
+ session_store.rb
+ database.yml
+ backgroundrb.yml
+ juggernaut.yml
+ juggernaut_hosts.yml
  sudo gem install rails -v=2.3.2
  sudo rake gems:install
 

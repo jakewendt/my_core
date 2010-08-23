@@ -13,6 +13,10 @@
   * ryanb-acts-as-list
   * prawn
   * gravatar
+  * jakewendt-ruby_extension
+  * jakewendt-stringify_time
+  * jakewendt-stringify_date
+  * jakewendt-assert_this_and_that
 * gems (for testing)
   * ZenTest
   * autotest-rails

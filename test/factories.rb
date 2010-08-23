@@ -135,7 +135,7 @@ Factory.define :private_resume, :parent => :resume do |f|
 end
 Factory.define :affiliation do |f|
 	f.association :resume
-	f.start_date_string "January 1, 2000"
+	f.start_date_string "January 1 2000"
 	f.organization "Organization"
 	f.relationship "Relationship"
 end
@@ -147,7 +147,7 @@ Factory.define :job do |f|
 	f.sequence(:title) { |n| "My Job Title #{n}" }
 	f.company "Company"
 	f.location "Location"
-	f.start_date_string "January 1, 2000"
+	f.start_date_string "January 1 2000"
 end
 Factory.define :public_job, :parent => :job do |f|
 	f.association :resume, :factory => :public_resume
@@ -165,7 +165,7 @@ Factory.define :publication do |f|
 	f.sequence(:name) { |n| "My Publication Name #{n}" }
 	f.contribution "Contribution"
 	f.sequence(:title) { |n| "My Publication Title #{n}" }
-	f.date_string "January 1, 2000"
+	f.date_string "January 1 2000"
 end
 Factory.define :public_publication, :parent => :publication do |f|
 	f.association :resume, :factory => :public_resume
@@ -174,7 +174,7 @@ Factory.define :school do |f|
 	f.association :resume
 	f.sequence(:name) { |n| "My School Name #{n}" }
 	f.location "Location"
-	f.start_date_string "January 1, 2000"
+	f.start_date_string "January 1 2000"
 end
 Factory.define :public_school, :parent => :school do |f|
 	f.association :resume, :factory => :public_resume
@@ -183,7 +183,7 @@ Factory.define :skill do |f|
 	f.association :resume
 	f.association :level
 	f.sequence(:name) { |n| "My Skill Name #{n}" }
-	f.start_date_string "January 1, 2000"
+	f.start_date_string "January 1 2000"
 end
 Factory.define :public_skill, :parent => :skill do |f|
 	f.association :resume, :factory => :public_resume

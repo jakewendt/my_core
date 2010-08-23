@@ -201,7 +201,8 @@ class ListTest < ActiveSupport::TestCase
 		assert_difference( "List.find(#{list.id}).incomplete_items.length", -1 ) do
 			list.update_attribute(:incomplete_items_attributes, [{
 				:id => list.incomplete_items.first.id,
-				:_delete => true
+				:_destroy => true
+#				:_delete => true
 			}])
 		end
 		after = list.reload.updated_at
@@ -223,7 +224,8 @@ class ListTest < ActiveSupport::TestCase
 	test "should delete item on list update" do
 		list = list_with_items
 		item = list.incomplete_items.first
-		items = [{:id => item.id, :_delete => true }]
+#		items = [{:id => item.id, :_delete => true }]
+		items = [{:id => item.id, :_destroy => true }]
 		assert_difference( "List.find(#{list.id}).incomplete_items.length", -1 ) do
 			list.update_attributes( { :incomplete_items_attributes => items } )
 		end

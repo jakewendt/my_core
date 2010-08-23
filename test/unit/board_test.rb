@@ -47,7 +47,8 @@ class BoardTest < ActiveSupport::TestCase
 	test "should delete magnet on board update" do
 		board = board_with_magnets
 		magnet = board.magnets.first
-		magnets = [{:id => magnet.id, :_delete => true }]
+#		magnets = [{:id => magnet.id, :_delete => true }]
+		magnets = [{:id => magnet.id, :_destroy => true }]
 		assert_difference( "Board.find(#{board.id}).magnets.length", -1 ) do
 			board.update_attributes( { :magnets_attributes => magnets } )
 		end
@@ -100,7 +101,8 @@ class BoardTest < ActiveSupport::TestCase
 		assert_difference( "Board.find(#{board.id}).magnets.length", -1 ) do
 			board.update_attribute(:magnets_attributes, [{
 				:id => board.magnets.first.id,
-				:_delete => true
+				:_destroy => true
+#				:_delete => true
 			}])
 		end
 		after = board.reload.updated_at

@@ -103,7 +103,8 @@ class ResumeTest < ActiveSupport::TestCase
 		test "should delete #{component} on resume update" do
 			resume = resume_with_components
 			comp  = resume.send(component.pluralize).first
-			comps = [{:id => comp.id, :_delete => true }]
+#			comps = [{:id => comp.id, :_delete => true }]
+			comps = [{:id => comp.id, :_destroy => true }]
 			assert_difference( "Resume.find(#{resume.id}).send('#{component.pluralize}').length", -1 ) do
 				resume.update_attributes( { "#{component.pluralize}_attributes" => comps } )
 			end

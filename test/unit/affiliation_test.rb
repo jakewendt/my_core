@@ -48,7 +48,8 @@ class AffiliationTest < ActiveSupport::TestCase
 	end
 
 	test "should return month year on end_date_to_s with date" do
-		affiliation = create_affiliation(:end_date_string => "January 1, 2001")
+#		affiliation = create_affiliation(:end_date_string => "January 1, 2001")
+		affiliation = create_affiliation(:end_date_string => "January 1 2001")
 		assert_equal affiliation.end_date_to_s, "Jan 2001"
 	end
 

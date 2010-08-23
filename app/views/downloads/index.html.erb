@@ -1,0 +1,9 @@
+<% content_for :top_menu, downloads_legend -%>
+
+<% controlframe "Downloads", 'down_arrow.png' do -%>
+	<%= sort_select_tags('Download') %>
+<% end -%>
+
+<div id='downloads' class='table'>
+<%= render :partial => 'row', :collection => @downloads, :as => :download -%>
+</div>

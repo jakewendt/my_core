@@ -81,9 +81,7 @@ end
 				} }
 				assert_not_nil flash[:error]
 #				assert_redirected_to :controller => obj.class.name.downcase.pluralize
-				assert_redirected_to :controller => obj.class.name.downcase.pluralize,
-					:action => 'index'
-#				assert_response :redirect
+				assert_response :redirect
 				obj.photoables_photos.each{|pp|pp.photo.destroy} if obj.respond_to?(:photoables_photos)
 			end if actions.include?('index')
 

@@ -1,0 +1,21 @@
+
+	Assert Only Differences (everything else remains the same)
+
+	assert_only_differences will check all ActiveRecord::Base tables
+		for a change in count, expecting 0 unless otherwise provided.
+
+	Add any models to ignore in your test_helper.rb like so
+		class Test::Unit::TestCase  (or class ActiveSupport::TestCase)
+			self.ignore_differences = ["IgnoreMe"]
+
+	Use me like so ...
+		assert_only_differences() {
+			do_something_that_should_not_change_anything();
+		}
+
+		assert_only_differences({
+				"users(:me).stuff.reload.size" => 5
+			}) {
+			do_something_that_should_not_change_anything_except_my_stuff();
+		}
+

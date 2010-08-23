@@ -62,7 +62,8 @@ class JobTest < ActiveSupport::TestCase
 	end
 
 	test "should return month year on end_date_to_s with date" do
-		job = create_job(:end_date_string => "January 1, 2001")
+#		job = create_job(:end_date_string => "January 1, 2001")
+		job = create_job(:end_date_string => "January 1 2001")
 		assert_equal job.end_date_to_s, "Jan 2001"
 	end
 

@@ -11,8 +11,10 @@
   </td>
         
   <td>
-    <%= f.check_box :_delete %>
-    <%= f.label :_delete, 'Destroy' %>
+    <%#= f.check_box :_delete %>
+    <%#= f.label :_delete, 'Destroy' %>
+    <%= f.check_box :_destroy %>
+    <%= f.label :_destroy, 'Destroy' %>
   </td>
 <% end -%><%# end fields_for -%>
 <% end %><%# end content_tag_for(:tr, language) do -%>

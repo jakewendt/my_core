@@ -29,7 +29,8 @@ class ResumesControllerTest < ActionController::TestCase
 			resume = resume_with_components
 			login_as resume.user
 			comp  = resume.send(component.pluralize).first
-			comps = [{:id => comp.id, :_delete => true }]
+#			comps = [{:id => comp.id, :_delete => true }]
+			comps = [{:id => comp.id, :_destroy => true }]
 			assert_difference( "Resume.find(#{resume.id}).send('#{component.pluralize}').length", -1 ) do
 				put :update, :id => resume.id, :resume => {
 					"#{component.pluralize}_attributes" => comps

@@ -38,7 +38,8 @@ class ListsControllerTest < ActionController::TestCase
 		list = list_with_items
 		initial_updated_at = list.updated_at
 		login_as list.user
-		items = [{:id => list.items.first.id, :_delete => true }]
+#		items = [{:id => list.items.first.id, :_delete => true }]
+		items = [{:id => list.items.first.id, :_destroy => true }]
 		assert_difference("List.find(#{list.id}).items.length", -1) do
 			put :update, :id => list.id, :list => { :incomplete_items_attributes => items }
 		end

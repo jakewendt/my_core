@@ -22,7 +22,8 @@ class BoardsControllerTest < ActionController::TestCase
 	test "should destroy magnet with board update with owner login" do
 		board = board_with_magnets
 		login_as board.user
-		magnets = [{:id => board.magnets.first.id, :_delete => true }]
+#		magnets = [{:id => board.magnets.first.id, :_delete => true }]
+		magnets = [{:id => board.magnets.first.id, :_destroy => true }]
 		assert_difference("Board.find(#{board.id}).magnets.length", -1) do
 			put :update, :id => board.id, :board => { :magnets_attributes => magnets }
 		end

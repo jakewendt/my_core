@@ -62,4 +62,4 @@ rip.rb
 test.pl
 ttt.rb
 
-
+config/initializers/mail.rb

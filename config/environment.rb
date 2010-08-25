@@ -134,9 +134,7 @@ Date::DATE_FORMATS[:mdy] = "%b %d, %Y"	 # Jan 01, 2009
 ActionController::Base::PER_PAGE = 50
 
 require 'array_extension'
-#	require 'hash_extension'
 require 'string_extension'
-#	require 'nil_class_extension'
 require 'prawn_extension'
 require 'common_search'
 

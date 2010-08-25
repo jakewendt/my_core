@@ -31,8 +31,9 @@ module ApplicationHelper
 			concat(content_tag(:div, :class => "controlframe") do
 				image_tag( icon ) +
 				content_tag(:div, :class => "control bar") do
-					content_tag(:b, title) +
-					capture(&block)
+					"#{content_tag(:b, title)} #{capture(&block)}"
+#	I don't know why, but using the + as below no longer works?????
+#					content_tag(:b, title) + capture(&block)
 				end
 			end)
 		else

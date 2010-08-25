@@ -31,12 +31,15 @@ config.gem "thoughtbot-factory_girl",
 	:lib    => "factory_girl",
 	:source => "http://gems.github.com"
 
-config.gem "autotest-rails", :lib => 'autotest/rails'
+config.gem "autotest-rails", 
+	:lib => 'autotest/rails'
+
 config.gem "ZenTest"
 
+config.gem 'jakewendt-assert_this_and_that',
+	:lib => 'assert_this_and_that',
+	:source => 'http://rubygems.org'
 
-	config.gem 'jakewendt-assert_this_and_that',
-		:lib => 'assert_this_and_that',
-		:source => 'http://rubygems.org'
-
+config.gem "ruby-prof"
+config.gem "rcov"
 

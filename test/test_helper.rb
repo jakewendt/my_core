@@ -3,6 +3,8 @@ require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'test_help'
 
 $LOAD_PATH.unshift File.dirname(__FILE__)	#	NEEDED for rake test:coverage
+require 'declarative'
+
 require 'authenticated_test_helper'
 require 'factory_test_helper'
 require 'core_test'

@@ -60,7 +60,9 @@ Rails::Initializer.run do |config|
 #		ahh ... needs :lib => 'juggernaut'
 
 	#	needs unpacked on hostingrails.com server
-	config.gem "maccman-juggernaut", :source => "http://gems.github.com", :lib => "juggernaut"
+	config.gem "maccman-juggernaut", 
+		:lib => "juggernaut",
+		:source => "http://gems.github.com"
 
 
 	# Settings in config/environments/* take precedence over those specified here.

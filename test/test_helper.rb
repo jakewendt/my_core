@@ -15,38 +15,8 @@ require 'pdf_downloadable_test'
 require 'txt_downloadable_test'
 require 'taggability_test'
 
-#require File.dirname(__FILE__) + '/../vendor/plugins/file_column/lib/test_case.rb'
-
 include AuthenticatedTestHelper
 include FactoryTestHelper
-
-#	assert-valid-asset plugin (does not seem to be Rails 2.3.2 compatible)
-#class ActionController::TestCase
-#	self.auto_validate = true
-#	self.display_invalid_content = true
-#end
-
-
-
-#	update html_test plugin
-#	install my html_test_extension plugin
-#	remove some of the excess here
-
-
-
-#	html_test plugin
-ApplicationController.validate_all = true
-#	default is :tidy, but it doesn't really validate.	
-#	I've purposely not closed tags and it doesn't complain.
-#	:w3c is ridiculously slow! even when used locally
-ApplicationController.validators = [:w3c]
-#ApplicationController.validators = [:tidy, :w3c]
-
-Html::Test::Validator.verbose = false
-#	http://habilis.net/validator-sac/
-#	http://habilis.net/validator-sac/#advancedtopics
-Html::Test::Validator.w3c_url = "http://localhost/w3c-validator/check"
-Html::Test::Validator.tidy_ignore_list = [/<table> lacks "summary" attribute/]
 
 class ActiveSupport::TestCase
 

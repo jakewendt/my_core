@@ -36,6 +36,7 @@ Rails::Initializer.run do |config|
 		:source => 'http://gems.github.com'
 
 	config.gem 'gravatar'
+	config.gem 'jrails'
 
 
 	config.gem "prawn"

@@ -1,5 +1,5 @@
 require File.dirname(__FILE__) + '/../test_helper'
-require 'hash_extension'
+#require 'hash_extension'
 
 class AssetsControllerTest < ActionController::TestCase
 

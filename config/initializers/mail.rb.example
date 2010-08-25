@@ -1,19 +1,30 @@
-# Email settings
-require 'smtp_tls'
-ActionMailer::Base.delivery_method = :smtp
-ActionMailer::Base.smtp_settings = {
-  :address => "mail.jakewendt.com",
-  :port => 26,
-  :domain => "http://my.jakewendt.com",
-  :authentication => :plain,
-  :user_name => "my@jakewendt.com",
-  :password => ""
-}
+#	# Email settings
+#	require 'smtp_tls'
+#	ActionMailer::Base.delivery_method = :smtp
+#	ActionMailer::Base.smtp_settings = {
+#		:address => "mail.jakewendt.com",
+#		:port => 26,
+#		:domain => "http://my.jakewendt.com",
+#		:authentication => :plain,
+#		:user_name => "my@jakewendt.com",
+#		:password => ""
+#	}
 #ActionMailer::Base.smtp_settings = {
-#  :address => "smtp.gmail.com",
-#  :port => 587,
-#  :domain => "http://bellsandwhistles.jakewendt.com",
-#  :authentication => :plain,
-#  :user_name => "restfulbellsandwhistles@gmail.com",
-#  :password => ""  
+#	:address => "smtp.gmail.com",
+#	:port => 587,
+#	:domain => "http://bellsandwhistles.jakewendt.com",
+#	:authentication => :plain,
+#	:user_name => "restfulbellsandwhistles@gmail.com",
+#	:password => ""  
 #}
+
+ActionMailer::Base.smtp_settings = {
+	:enable_starttls_auto => true,
+	:address => "smtp.gmail.com",
+	:port => 587,
+	:domain => "gmail.com",
+	:authentication => :plain,
+	:user_name => "YOUR_GMAIL_USERNAME@gmail.com",
+	:password => "YOUR_GMAIL_PASSWORD"
+}
+ActionMailer::Base.default_content_type = "text/html"

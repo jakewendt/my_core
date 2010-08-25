@@ -168,7 +168,12 @@ class ItemsControllerTest < ActionController::TestCase
 		put :update, :id => item.id, :item => Factory.attributes_for(:completed_item)
 		assert_equal assigns(:item).completed, true
 		assert_response :success
-		assert_select_rjs :append_to, "#item_#{assigns(:item).id}", "#completed_items"
+#		assert_select_rjs :append_to, "#item_#{assigns(:item).id}", "#completed_items"
+#		:append_to NOT in the gem
+#		:append_to => "\(jQuery|$\)\\(#{RJS_ANY_ID}\\)\\.appendTo\\(#{RJS_PATTERN_HTML}\\)",
+		assert_match(/(jQuery|$)\("#item_#{assigns(:item).id}"\)\.appendTo\("#completed_items"\)/,
+			@response.body)
+		assert_select_rjs :replace_html, "#item_#{assigns(:item).id} span.manage"
 	end
 
 	test "should update item with admin login" do
@@ -177,7 +182,11 @@ class ItemsControllerTest < ActionController::TestCase
 		put :update, :id => item.id, :item => Factory.attributes_for(:completed_item)
 		assert_equal assigns(:item).completed, true
 		assert_response :success
-		assert_select_rjs :append_to, "#item_#{assigns(:item).id}", "#completed_items"
+#		assert_select_rjs :append_to, "#item_#{assigns(:item).id}", "#completed_items"
+#		:append_to NOT in the gem
+		assert_match(/(jQuery|$)\("#item_#{assigns(:item).id}"\)\.appendTo\("#completed_items"\)/,
+			@response.body)
+		assert_select_rjs :replace_html, "#item_#{assigns(:item).id} span.manage"
 	end
 
 

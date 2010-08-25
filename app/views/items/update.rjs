@@ -4,10 +4,12 @@
 #	NEED to double quote everything if you want assert_select_rjs to work.
 if @item.completed
 page << "jQuery(\"##{dom_id(@item)}\").appendTo(\"#completed_items\")"
-page << "jQuery(\"##{dom_id(@item)} span.manage\").html('#{@item.completed_at.to_s(:basic)}')"
+#page << "jQuery(\"##{dom_id(@item)} span.manage\").html('#{@item.completed_at.to_s(:basic)}')"
+page << "jQuery(\"##{dom_id(@item)} span.manage\").html(\"#{@item.completed_at.to_s(:basic)}\")"
 else
 page << "jQuery(\"##{dom_id(@item)}\").appendTo(\"#items\")"
-page << "jQuery(\"##{dom_id(@item)} span.manage\").html('')"
+# page << "jQuery(\"##{dom_id(@item)} span.manage\").html('')"
+page << "jQuery(\"##{dom_id(@item)} span.manage\").html(\"\")"
 end
 
 #page.remove dom_id(@item)

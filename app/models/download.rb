@@ -50,7 +50,8 @@ class Download < ActiveRecord::Base
 		# if you want it done right, do it yourself
 		params = (uri.query||"").to_params_hash
 
-		require 'prawn_extension'
+#	moved into initializers so it is auto required ( I think )
+#		require 'prawn_extension'
 		pdf = Prawn::Document.new
 
 #

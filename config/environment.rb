@@ -135,9 +135,9 @@ Date::DATE_FORMATS[:mdy] = "%b %d, %Y"	 # Jan 01, 2009
 
 ActionController::Base::PER_PAGE = 50
 
-require 'array_extension'
-require 'string_extension'
-require 'prawn_extension'
-require 'common_search'
+#require 'array_extension'
+#require 'string_extension'
+#require 'prawn_extension'
+#require 'common_search'
 
 JUGGERNAUT_ENABLED = false

@@ -30,4 +30,5 @@ module RssFeedTest
 		end
 	end
 end
-Test::Unit::TestCase.send(:include,RssFeedTest)
+#Test::Unit::TestCase.send(:include,RssFeedTest)
+ActiveSupport::TestCase.send(:include,RssFeedTest)

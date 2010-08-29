@@ -53,4 +53,5 @@ module TaggabilityTest
 		end
 	end
 end
-Test::Unit::TestCase.send(:include,TaggabilityTest)
+#Test::Unit::TestCase.send(:include,TaggabilityTest)
+ActiveSupport::TestCase.send(:include,TaggabilityTest)

@@ -257,4 +257,5 @@ module CommonSearchTest
 
 	end	#	 module ClassMethods
 end	#	 module CommonSearchTest
-Test::Unit::TestCase.send(:include,CommonSearchTest)
+#Test::Unit::TestCase.send(:include,CommonSearchTest)
+ActiveSupport::TestCase.send(:include,CommonSearchTest)

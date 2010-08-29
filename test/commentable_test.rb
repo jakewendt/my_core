@@ -52,4 +52,5 @@ module CommentableTest
 		end
 	end
 end
-Test::Unit::TestCase.send(:include,CommentableTest)
+#Test::Unit::TestCase.send(:include,CommentableTest)
+ActiveSupport::TestCase.send(:include,CommentableTest)

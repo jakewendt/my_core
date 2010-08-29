@@ -49,4 +49,5 @@ module TxtDownloadableTest
 		end
 	end
 end
-Test::Unit::TestCase.send(:include,TxtDownloadableTest)
+#Test::Unit::TestCase.send(:include,TxtDownloadableTest)
+ActiveSupport::TestCase.send(:include,TxtDownloadableTest)

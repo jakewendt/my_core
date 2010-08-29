@@ -1,4 +1,4 @@
-require 'array_extension'
+#require 'array_extension'
 module OrderableTest
 	
 	def self.included(base)
@@ -42,4 +42,5 @@ module OrderableTest
 		end
 	end
 end
-Test::Unit::TestCase.send(:include,OrderableTest)
+#Test::Unit::TestCase.send(:include,OrderableTest)
+ActiveSupport::TestCase.send(:include,OrderableTest)

@@ -252,4 +252,5 @@ module PhotoableTest
 		end
 	end
 end
-Test::Unit::TestCase.send(:include,PhotoableTest)
+#Test::Unit::TestCase.send(:include,PhotoableTest)
+ActiveSupport::TestCase.send(:include,PhotoableTest)

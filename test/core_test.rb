@@ -391,4 +391,5 @@ module CoreTest
 
 	end	#	 module ClassMethods
 end	#	 module CoreTest
-Test::Unit::TestCase.send(:include,CoreTest)
+#Test::Unit::TestCase.send(:include,CoreTest)
+ActiveSupport::TestCase.send(:include,CoreTest)

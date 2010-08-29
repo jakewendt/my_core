@@ -88,4 +88,5 @@ end
 		end
 	end
 end
-Test::Unit::TestCase.send(:include,PdfDownloadableTest)
+#Test::Unit::TestCase.send(:include,PdfDownloadableTest)
+ActiveSupport::TestCase.send(:include,PdfDownloadableTest)

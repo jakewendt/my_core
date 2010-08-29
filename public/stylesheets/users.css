@@ -22,3 +22,8 @@ table#user_profile th a {
   color: white;
   font-weight: normal;
 }
+
+img.gravatar {
+	width: 200px;
+	height: 200px;
+}

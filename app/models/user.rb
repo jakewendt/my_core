@@ -1,7 +1,7 @@
 require 'digest/sha1'
 class User < ActiveRecord::Base
 
-	file_column :image
+#	file_column :image
 
 	# Virtual attribute for the unencrypted password
 	attr_accessor :password	
@@ -176,6 +176,16 @@ class User < ActiveRecord::Base
 	def is_admin?
 		self.has_role?('administrator')
 	end
+
+
+
+	#	gravatar can't deal with a nil email
+	gravatar :email, :rating => 'PG'
+
+	def gravatar_url
+		gravatar.url.gsub(/&/,'&amp;')
+	end
+
 
 
 protected

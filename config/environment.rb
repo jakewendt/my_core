@@ -19,6 +19,8 @@ Rails::Initializer.run do |config|
 
 	config.active_record.observers = :user_observer
 
+	config.gem 'gravatar'
+
 	config.gem 'jakewendt-stringify_date',
 		:lib    => 'stringify_date', 
 		:source => 'http://rubygems.org'

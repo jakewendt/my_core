@@ -331,6 +331,7 @@ module CssMenuHelper
 	end
 
 	def page_menu(page)
+return if page.nil?
 		menu_items = [
 			link_to( 'Edit', edit_page_path(page) ),
 			"<hr/>",

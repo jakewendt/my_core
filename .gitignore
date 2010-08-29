@@ -53,6 +53,7 @@ versions
 /public/y.html
 /rip.rb
 /test.pl
+/test/tmp/
 /tmp/
 /ttt.rb
 /vendor/unused_plugins/

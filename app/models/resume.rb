@@ -14,7 +14,8 @@ class Resume < ActiveRecord::Base
 	attr_accessible :skills_attributes, :jobs_attributes, :schools_attributes,
 		:affiliations_attributes, :publications_attributes, :languages_attributes
 
-	acts_as_taggable
+#	acts_as_taggable
+	simply_taggable
 	acts_as_ownable
 
 	validates_length_of :title, :in => 4..100

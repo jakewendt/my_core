@@ -8,7 +8,8 @@ class Stop < ActiveRecord::Base
 
 	acts_as_list :scope => :trip
 
-	acts_as_commentable
+	simply_commentable
+#	acts_as_commentable
 
 	delegate :user, :to => :trip
 

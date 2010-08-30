@@ -2,7 +2,8 @@ class List < ActiveRecord::Base
 	include CommonSearch
 	SORTABLE_COLUMNS = %w( Title Items_Count Complete_Items_Count Incomplete_Items_Count Created_At Updated_At )
 
-	acts_as_taggable
+#	acts_as_taggable
+	simply_taggable
 	acts_as_ownable
 
 	has_many :items, :dependent => :destroy, :order => :position

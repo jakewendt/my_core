@@ -15,5 +15,6 @@ class Photo < ActiveRecord::Base
 
 	attr_accessible :file, :file_temp, :caption
 
-	acts_as_commentable
+	simply_commentable
+#	acts_as_commentable
 end

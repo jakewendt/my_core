@@ -8,7 +8,8 @@ class Entry < ActiveRecord::Base
 	attr_accessible :title, :body, :created_at, :created_at_string
 	stringify_time :created_at
 
-	acts_as_commentable
+	simply_commentable
+#	acts_as_commentable
 
 	delegate :user, :to => :blog
 

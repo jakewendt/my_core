@@ -19,7 +19,17 @@ Rails::Initializer.run do |config|
 
 	config.active_record.observers = :user_observer
 
+	config.gem 'mysql'
+
 	config.gem 'gravatar'
+
+	config.gem 'jakewendt-simply_commentable',
+		:lib    => 'simply_commentable', 
+		:source => 'http://rubygems.org'
+
+	config.gem 'jakewendt-simply_taggable',
+		:lib    => 'simply_taggable', 
+		:source => 'http://rubygems.org'
 
 	config.gem 'jakewendt-stringify_date',
 		:lib    => 'stringify_date', 

@@ -43,3 +43,6 @@ config.gem 'jakewendt-assert_this_and_that',
 config.gem "ruby-prof"
 config.gem "rcov"
 
+#	Without the :lib => false, the 'rake test' actually fails?
+config.gem "mocha", :lib => false
+

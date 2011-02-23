@@ -25,7 +25,7 @@ Rails::Initializer.run do |config|
 	config.gem 'mysql'
 
 	config.gem 'will_paginate', 
-		:version => '~> 2.3.11', 
+		:version => '~> 2.3', 
 		:source => 'http://gemcutter.org'
 
 	config.gem 'gravatar'

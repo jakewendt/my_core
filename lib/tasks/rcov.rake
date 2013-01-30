@@ -1,6 +1,9 @@
 #
 #	This is from Advanced Rails Recipes, page 277
 #
+
+#	TODO use the version in simply_helpful and delete this
+
 namespace :test do
 	
 	desc 'Tracks test coverage with rcov'
